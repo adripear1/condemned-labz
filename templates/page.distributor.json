@@ -1,0 +1,140 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_NgnhrC": {
+      "type": "image-banner",
+      "settings": {
+        "section_custom_class": "",
+        "image": "shopify://shop_images/CL_OfficDistDom-1920x720_copy_1.jpg",
+        "image_mob": "shopify://shop_images/CL_OfficDistDom-1080x1350_copy_1.jpg",
+        "banner_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "allow__video": false,
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "mob__video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "rich_text_WwXHGD": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_fczKDd": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Become a Condemned Labz Distributor",
+            "heading_size": "h1"
+          }
+        },
+        "text_gQemyg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Are you passionate about premium sports nutrition and fitness supplements? Partner with Condemned Labz, a leader in high-performance nutrition, and grow your business with products that your customers will love.</p><p>As a distributor, you’ll gain access to exclusive benefits, premium products, and a partnership dedicated to your success. Take the first step today—fill out the form below to get started!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fczKDd",
+        "text_gQemyg"
+      ],
+      "settings": {
+        "text_cs_class": "mm-distributor",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 36,
+        "padding_bottom": 32
+      }
+    },
+    "mm_distributor_form_jLwH4J": {
+      "type": "mm-distributor-form",
+      "blocks": {
+        "text_tPNGrb": {
+          "type": "text",
+          "settings": {
+            "content": "<p><strong>High-Quality Products:</strong> Backed by science and crafted for results.</p>"
+          }
+        },
+        "text_h6fgwM": {
+          "type": "text",
+          "settings": {
+            "content": "<p><strong>Exclusive Distributor Pricing: </strong>Enjoy competitive margins and special offers.</p>"
+          }
+        },
+        "text_VMU8zA": {
+          "type": "text",
+          "settings": {
+            "content": "<p><strong>Marketing Support:</strong> Leverage our branding and promotional materials to boost your sales.</p>"
+          }
+        },
+        "text_9YPBNe": {
+          "type": "text",
+          "settings": {
+            "content": "<p><strong>Trusted by Athletes:</strong> Products designed for peak performance and real results.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_tPNGrb",
+        "text_h6fgwM",
+        "text_VMU8zA",
+        "text_9YPBNe"
+      ],
+      "settings": {
+        "left_block_heading": "Why Distribute Condemned Labz?",
+        "right_block_content": "<div class=\"globo-formbuilder\" data-id=\"NzA1NTk=\"></div>",
+        "left_block_bg": "#000000",
+        "left_block_text": "#ffffff",
+        "right_block_bg": "#ffffff",
+        "right_block_border": "#fab20a",
+        "right_block_text": "#000000",
+        "button_bg": "#000000",
+        "button_text_color": "#ffffff",
+        "padding_top": 18,
+        "padding_bottom": 126
+      }
+    },
+    "custom_liquid_Qf8Mkk": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "<div class=\"globo-formbuilder\" data-id=\"NzA1NTk=\"></div>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_NgnhrC",
+    "rich_text_WwXHGD",
+    "mm_distributor_form_jLwH4J",
+    "custom_liquid_Qf8Mkk"
+  ]
+}

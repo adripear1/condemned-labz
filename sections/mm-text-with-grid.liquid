@@ -1,0 +1,150 @@
+{{ "mm-text-with-grid.css" | asset_url | stylesheet_tag }}
+
+{% style %}
+  #shopify-section-{{ section.id }} .mm-text-with-grid {
+    background-color: {{ section.settings.background_color }};
+    {% if section.settings.background_image != blank %}
+      background-image: url({{ section.settings.background_image | image_url: width: 2000 }});
+      background-size: cover;
+      background-position: center;
+    {% endif %}
+  }
+{% endstyle %}
+
+<div class="mm-text-with-grid{% if section.settings.styling_class != blank %} {{ section.settings.styling_class }}{% endif %}">
+  <div class="container">
+    <div class="inner-grid">
+      {% if section.settings.heading != blank %}
+        <h2 class="heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+      <div class="photo-grid">
+        {% for block in section.blocks %}
+          <div class="photo-item photo-item-{{ forloop.index }}">
+            <img
+              srcset="
+              {%- if block.settings.image_mobile.width >= 165 -%}{{ block.settings.image_mobile | image_url: width: 165 }} 165w,{%- endif -%}
+              {%- if block.settings.image_mobile.width >= 360 -%}{{ block.settings.image_mobile | image_url: width: 360 }} 360w,{%- endif -%}
+              {%- if block.settings.image_mobile.width >= 535 -%}{{ block.settings.image_mobile | image_url: width: 535 }} 535w,{%- endif -%}
+              {%- if block.settings.image_mobile.width >= 750 -%}{{ block.settings.image_mobile | image_url: width: 750 }} 750w,{%- endif -%}
+              {%- if block.settings.image_mobile.width >= 1070 -%}{{ block.settings.image_mobile | image_url: width: 1070 }} 1070w,{%- endif -%}
+              {%- if block.settings.image_mobile.width >= 1500 -%}{{ block.settings.image_mobile | image_url: width: 1500 }} 1500w,{%- endif -%}
+              {{ block.settings.image_mobile | image_url }} {{ block.settings.image_mobile.width }}w
+              "
+              src="{{ block.settings.image_mobile | image_url: width: 750 }}"
+              sizes="(min-width: 1200px) 600px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
+              alt="{{ block.settings.image_mobile.alt | escape }}"
+              width="{{ block.settings.image_mobile.width }}"
+              height="{{ block.settings.image_mobile.height }}"
+              class="mobile-image"
+            >
+            <img
+              srcset="
+              {%- if block.settings.image_desktop.width >= 165 -%}{{ block.settings.image_desktop | image_url: width: 165 }} 165w,{%- endif -%}
+              {%- if block.settings.image_desktop.width >= 360 -%}{{ block.settings.image_desktop | image_url: width: 360 }} 360w,{%- endif -%}
+              {%- if block.settings.image_desktop.width >= 535 -%}{{ block.settings.image_desktop | image_url: width: 535 }} 535w,{%- endif -%}
+              {%- if block.settings.image_desktop.width >= 750 -%}{{ block.settings.image_desktop | image_url: width: 750 }} 750w,{%- endif -%}
+              {%- if block.settings.image_desktop.width >= 1070 -%}{{ block.settings.image_desktop | image_url: width: 1070 }} 1070w,{%- endif -%}
+              {%- if block.settings.image_desktop.width >= 1500 -%}{{ block.settings.image_desktop | image_url: width: 1500 }} 1500w,{%- endif -%}
+              {{ block.settings.image_desktop | image_url }} {{ block.settings.image_desktop.width }}w
+              "
+              src="{{ block.settings.image_desktop | image_url: width: 750 }}"
+              sizes="(min-width: 1200px) 600px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
+              alt="{{ block.settings.image_desktop.alt | escape }}"
+              width="{{ block.settings.image_desktop.width }}"
+              height="{{ block.settings.image_desktop.height }}"
+              class="desktop-image"
+            >
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MM Text with Grid",
+  "settings": [
+    {
+      "type":"text",
+      "label":"Styling Class",
+      "id":"styling_class"
+    },{
+      "type":"image_picker",
+      "label":"Background Image",
+      "id":"background_image"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "THIS ISN'T AN APPLICATION"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#151515"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_picker",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_desktop",
+          "label": "Image (Desktop)"}
+      ]
+    },
+  ],
+  "presets": [
+    {
+      "name": "MM Text with Grid",
+      "blocks": [
+        {
+          "type": "image_picker",
+          "settings": {
+            "image_mobile": "shopify://shop_images/Rectangle_57.png",
+            "image_desktop": "shopify://shop_images/Rectangle_52.png"
+          }
+        },
+        {
+          "type": "image_picker",
+          "settings": {
+            "image_mobile": "shopify://shop_images/Rectangle_58.png",
+            "image_desktop": "shopify://shop_images/Rectangle_53.png"
+          }
+        },
+        {
+          "type": "image_picker",
+          "settings": {
+            "image_mobile": "shopify://shop_images/Rectangle_60.png",
+            "image_desktop": "shopify://shop_images/Rectangle_54.png"
+          }
+        },
+        {
+          "type": "image_picker",
+          "settings": {
+            "image_mobile": "shopify://shop_images/Rectangle_59.png",
+            "image_desktop": "shopify://shop_images/Rectangle_55.png"
+          }
+        },
+        {
+          "type": "image_picker",
+          "settings": {
+            "image_mobile": "shopify://shop_images/Rectangle_61.png",
+            "image_desktop": "shopify://shop_images/Rectangle_56.png"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

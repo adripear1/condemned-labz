@@ -1,0 +1,217 @@
+{{ 'mm-images-grid.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  #shopify-section-{{ section.id }} .mm-images-grid-wrapper {
+    background-color: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_tb_mobile }}px;
+    padding-bottom: {{ section.settings.padding_tb_mobile }}px;
+    background-image: url({{ section.settings.background_overlay_mobile | image_url }});
+  }
+
+
+  @media (min-width: 992px) {
+    #shopify-section-{{ section.id }} .mm-images-grid-wrapper {
+      padding-top: {{ section.settings.padding_tb_desktop }}px;
+      padding-bottom: {{ section.settings.padding_tb_desktop }}px;
+      background-image: url({{ section.settings.background_overlay_desktop | image_url }});
+    }
+  }
+{% endstyle %}
+
+<div class="mm-images-grid-wrapper">
+  <div class="container">
+    {% if section.settings.title != blank %}
+      <h2 class="mm-images-grid-title">{{ section.settings.title }}</h2>
+    {% endif %}
+    {% assign section_header = section.settings.section_heading %}
+    {% if section_header %}
+      <div class="ig-header">
+        <img
+          srcset="
+            {%- if section_header.width >= 165 -%}{{ section_header | image_url: width: 165 }} 165w,{%- endif -%}
+            {%- if section_header.width >= 360 -%}{{ section_header | image_url: width: 360 }} 360w,{%- endif -%}
+            {%- if section_header.width >= 535 -%}{{ section_header | image_url: width: 535 }} 535w,{%- endif -%}
+            {%- if section_header.width >= 750 -%}{{ section_header | image_url: width: 750 }} 750w,{%- endif -%}
+            {%- if section_header.width >= 1070 -%}{{ section_header | image_url: width: 1070 }} 1070w,{%- endif -%}
+            {%- if section_header.width >= 1500 -%}{{ section_header | image_url: width: 1500 }} 1500w,{%- endif -%}
+            {{ section_header | image_url }} {{ section_header.width }}w
+          "
+          src="{{ section_header | image_url: width: 750 }}"
+          sizes="(min-width: 1200px) 600px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
+          alt="{{ section_header.alt | escape }}"
+          width="{{ section_header.width }}"
+          height="{{ section_header.height }}"
+          class="section-header"
+        >
+      </div>
+    {% endif %}
+    <div class="photo-grid">
+      {% for block in section.blocks %}
+        {% liquid
+          assign image_mobile = block.settings.image_mobile
+          assign image_desktop = block.settings.image_desktop
+        %}
+        <div class="photo-item photo-item-{{ forloop.index }}">
+          <img
+            srcset="
+              {%- if image_mobile.width >= 165 -%}{{ image_mobile | image_url: width: 165 }} 165w,{%- endif -%}
+              {%- if image_mobile.width >= 360 -%}{{ image_mobile | image_url: width: 360 }} 360w,{%- endif -%}
+              {%- if image_mobile.width >= 535 -%}{{ image_mobile | image_url: width: 535 }} 535w,{%- endif -%}
+              {%- if image_mobile.width >= 750 -%}{{ image_mobile | image_url: width: 750 }} 750w,{%- endif -%}
+              {%- if image_mobile.width >= 1070 -%}{{ image_mobile | image_url: width: 1070 }} 1070w,{%- endif -%}
+              {%- if image_mobile.width >= 1500 -%}{{ image_mobile | image_url: width: 1500 }} 1500w,{%- endif -%}
+              {{ image_mobile | image_url }} {{ image_mobile.width }}w
+            "
+            src="{{ image_mobile | image_url: width: 750 }}"
+            sizes="(min-width: 1200px) 600px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
+            alt="{{ image_mobile.alt | escape }}"
+            width="{{ image_mobile.width }}"
+            height="{{ image_mobile.height }}"
+            class="mobile-image"
+          >
+          <img
+            srcset="
+              {%- if image_desktop.width >= 165 -%}{{ image_desktop | image_url: width: 165 }} 165w,{%- endif -%}
+              {%- if image_desktop.width >= 360 -%}{{ image_desktop | image_url: width: 360 }} 360w,{%- endif -%}
+              {%- if image_desktop.width >= 535 -%}{{ image_desktop | image_url: width: 535 }} 535w,{%- endif -%}
+              {%- if image_desktop.width >= 750 -%}{{ image_desktop | image_url: width: 750 }} 750w,{%- endif -%}
+              {%- if image_desktop.width >= 1070 -%}{{ image_desktop | image_url: width: 1070 }} 1070w,{%- endif -%}
+              {%- if image_desktop.width >= 1500 -%}{{ image_desktop | image_url: width: 1500 }} 1500w,{%- endif -%}
+              {{ image_desktop | image_url }} {{ image_desktop.width }}w
+            "
+            src="{{ image_desktop | image_url: width: 750 }}"
+            sizes="(min-width: 1200px) 600px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
+            alt="{{ image_desktop.alt | escape }}"
+            width="{{ image_desktop.width }}"
+            height="{{ image_desktop.height }}"
+            class="desktop-image"
+          >
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MM Images Grid",
+  "settings": [
+    {
+      "type":"text",
+      "label":"Title",
+      "id":"title"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_heading",
+      "label": "Section Heading"
+    },
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#2A2A2A"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_overlay_mobile",
+      "label": "Background Overlay (Mobile)"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_overlay_desktop",
+      "label": "Background Overlay (Desktop)"
+    },
+    {
+      "type": "range",
+      "id": "padding_tb_mobile",
+      "label": "Padding Top/Bottom (Mobile)",
+      "default": 40,
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_tb_desktop",
+      "label": "Padding Top/Bottom (Desktop)",
+      "default": 60,
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_picker",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_desktop",
+          "label": "Image (Desktop)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MM Images Grid",
+      "settings": {
+        "section_heading": "shopify://shop_images/image_5.png",
+        "background_color": "#2A2A2A",
+        "background_overlay_mobile": "shopify://shop_images/Group_30.png",
+        "background_overlay_desktop": "shopify://shop_images/Group_28.png"
+      },
+      "blocks": [
+        {
+          "type": "image_picker",
+          "settings": {
+            "image_mobile": "shopify://shop_images/Rectangle_68_1.png",
+            "image_desktop": "shopify://shop_images/Rectangle_69.png"
+          }
+        },
+        {
+          "type": "image_picker",
+          "settings": {
+            "image_mobile": "shopify://shop_images/Rectangle_70_1.png",
+            "image_desktop": "shopify://shop_images/Rectangle_71.png"
+          }
+        },
+        {
+          "type": "image_picker",
+          "settings": {
+            "image_mobile": "shopify://shop_images/Rectangle_69_1.png",
+            "image_desktop": "shopify://shop_images/Rectangle_70.png"
+          }
+        },
+        {
+          "type": "image_picker",
+          "settings": {
+            "image_mobile": "shopify://shop_images/Rectangle_71_1.png",
+            "image_desktop": "shopify://shop_images/Rectangle_72.png"
+          }
+        },
+        {
+          "type": "image_picker",
+          "settings": {
+            "image_mobile": "shopify://shop_images/Rectangle_68_2.png",
+            "image_desktop": "shopify://shop_images/Rectangle_73.png"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

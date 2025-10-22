@@ -1,0 +1,373 @@
+<style>
+    #shopify-section-{{ section.id }} .mm-dstf{ 
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    .mm-dstf .distributor--inner{
+        display: flex;
+        gap: 48px;
+        align-items: flex-start;
+    }
+    .mm-dstf .distributor--block{
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        border-radius: 10px;
+        flex: 1 1 50%;
+    }
+    .mm-dstf .distributor--block.distributor--right{
+        padding: 0;
+    }
+    .mm-dstf .distributor--block h4{
+        color: var(--text-color);
+    }
+    .mm-dstf .distributor--left{
+        padding: 66px 76px;
+    }
+    .mm-dstf .distributor--left .features--wrapper{
+        list-style: none;
+        padding: 0;
+    }
+    .mm-dstf .features--wrapper li{
+        display: flex;
+        gap: 22px;
+        align-items: center;
+        margin-bottom: 16px;
+    }
+    .mm-dstf .features--wrapper p{
+        margin: 0;
+    }
+    .mm-dstf .distributor--left h4 {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 50px;
+        letter-spacing: 0.6px;
+        margin: 0;
+    }
+    .mm-dstf .distributor--right{
+        padding: 44px 70px;
+        border: 2px solid var(--right-block-border);
+    }
+    .mm-dstf .distributor--right h4 {
+        text-align: center;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 50px;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        margin: 0;
+    }
+    .mm-dstf .distributor--right-content{
+        text-align: center;
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px;
+        letter-spacing: 0.6px;
+        max-width: 430px;
+        margin: auto;
+    }
+    .mm-dstf .distributor--right-end{
+        text-align: center;
+
+    }
+    .mm-dstf .distributor--right-end h4{
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 30px;
+        letter-spacing: 0.6px;
+        margin: 28px 0 0;
+    }
+    .mm-dstf .distributor--right-end p{
+        font-size: 17px;
+        font-style: normal;
+        line-height: 30px;
+        letter-spacing: 0.6px;
+        max-width: 450px;
+        margin: 16px auto 0;
+    }
+    .mm-dstf .distributor--right-end p a{
+        color: var(--text-color);
+        font-weight: 700;
+        display: block;
+    }
+    .mm-dstf .distributor--form .button{
+        background-color: #000;
+        color: #fff;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 50px;
+        letter-spacing: 0.6px;
+        width: 100%;
+        margin-top: 20px;
+        padding: 6px;
+    }
+    .mm-dstf .distributor--form h5{
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 50px;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        margin: 0;
+    }
+    .mm-dstf .info--input{
+        margin-bottom: 12px;
+    }
+    .mm-dstf .field__label-dist{
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 32px;
+        letter-spacing: 0.6px;
+    }
+    .mm-dstf .field__input{
+        border-radius: 7px;
+        border: 1px solid #000;
+        padding: 12px;
+    }
+    .mm-dstf .dist-form--block{
+        margin: 32px 0;
+    }
+    .mm-dstf #ContactForm-message::placeholder {
+        color: #767676;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+        opacity: 1;
+      }
+      /*** Globo app form ***/
+    .mm-dstf .globo-form-app{
+        box-shadow: unset;
+        margin: auto;
+    }
+    .mm-dstf .g-container .header{
+        margin-top: 10px;
+    }
+    .mm-dstf .g-container .header .globo-heading{
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 34px;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+    }
+    .mm-dstf .g-container .header .globo-description{
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px;
+        letter-spacing: 0.6px;
+        max-width: 420px;
+        margin: auto;
+    }
+    .mm-dstf .globo-formbuilder-wizard .heading-title{
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 28px;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        margin: 24px 0 4px;
+    }
+    .mm-dstf .globo-formbuilder-wizard .label-content{
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 26px;
+        letter-spacing: 0.6px;
+    }
+    .mm-dstf .globo-formbuilder-wizard .classic-input{
+        border-radius: 7px;
+        border: 1px solid #000;
+        background: #FFF;
+    }
+    .mm-dstf .gfb__footer .description{
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px;
+        letter-spacing: 0.6px;
+        text-align: center;
+        max-width: 438px;
+        margin: auto;
+        margin: 20px auto;
+    }
+    .mm-dstf .gfb__footer .description h4{
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 30px;
+        letter-spacing: 0.6px;
+    }
+    .mm-dstf .gfb__footer .description a{
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 30px;
+        letter-spacing: 0.6px;
+        color: black;
+        text-decoration: none;
+    }
+    .mm-dstf .gfb__footer .submit{
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 32px;
+        letter-spacing: 0.6px;
+    }
+      @media screen and (max-width: 991px){
+        .mm-dstf .distributor--left, .mm-dstf .distributor--right{
+            padding: 32px 28px;
+        }
+        .mm-dstf .distributor--inner{
+            gap: 24px;
+        }
+        .mm-dstf .distributor--left h4, .mm-dstf .distributor--left h4{
+            font-size: 22px;
+        }
+     }
+     @media screen and (max-width: 820px){
+        .mm-dstf .distributor--left, .mm-dstf .distributor--right{
+            padding: 32px 20px;
+        }
+        .mm-dstf .distributor--inner{
+            flex-direction: column;
+        }
+        .mm-dstf .distributor--right{
+            width: 100%;
+        }
+    }
+    @media screen and (max-width: 767px){
+        .mm-dstf .distributor--left h4, .mm-dstf .distributor--right h4, .mm-dstf .g-container .header .globo-heading{
+            font-size: 20px;
+            line-height: 1.3;
+        }
+        .mm-dstf .dist-form--block{
+            margin: 24px 0;
+        }
+        .mm-dstf .globo-form-app.boxed-layout .g-container{
+            padding: 16px;
+        }
+    }
+    @media screen and (min-width: 821px){
+        .mm-dstf .distributor--left{
+            position: sticky;
+            top: 20px;
+        }
+    }
+</style>
+
+<div class="mm-distributor--form mm-dstf">
+    <div class="page-width">
+        <div class="distributor--inner">
+            <div class="distributor--left distributor--block" style="--bg-color: {{ section.settings.left_block_bg }}; --text-color: {{ section.settings.left_block_text }}">
+                <h4>{{ section.settings.left_block_heading }}</h4>
+                <ul class="features--wrapper">
+                    {% for block in section.blocks %}
+                       <li>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" viewBox="0 0 19 16" fill="none">
+                                <path d="M2 8.5L6.5 13L17.5 2" stroke="#FAB20A" stroke-width="4"/>
+                            </svg>
+                        </span>
+                        {{ block.settings.content }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="distributor--right distributor--block" style="--bg-color: {{ section.settings.right_block_bg }}; --text-color: {{ section.settings.right_block_text }}; --right-block-border: {{ section.settings.right_block_border }}">
+                <div class="distributor--form__wrapper">
+                    {{ section.settings.right_block_content }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name":"MM Distributor Form",
+    "settings": [{
+        "type":"text",
+        "label":"Left Block Heading",
+        "id":"left_block_heading",
+        "default":"Why Distribute Condemned Labz?"
+    },{
+        "type":"liquid",
+        "label":"Right Block Content",
+        "id":"right_block_content",
+    },{
+        "type":"header",
+        "content":"Colors"
+    },{
+        "type":"color",
+        "label":"Left Block BG",
+        "id":"left_block_bg",
+        "default":"#000"
+    },{
+        "type":"color",
+        "label":"Left Block Text",
+        "id":"left_block_text",
+        "default":"#fff"
+    },
+    {
+        "type":"color",
+        "label":"Right Block BG",
+        "id":"right_block_bg",
+        "default":"#FAB20A"
+    },{
+        "type":"color",
+        "label":"Right Block Border",
+        "id":"right_block_border",
+        "default":"#FAB20A"
+    },{
+        "type":"color",
+        "label":"Right Block Text",
+        "id":"right_block_text",
+        "default":"#000"
+    },{
+        "type":"color",
+        "label":"Button BG",
+        "id":"button_bg",
+        "default":"#000"
+    },{
+        "type":"color",
+        "label":"Button Text",
+        "id":"button_text_color",
+        "default":"#fff"
+    },{
+        "type":"range",
+        "label":"Padding Top",
+        "id":"padding_top",
+        "default":40,
+        "min":0,
+        "max":200,
+        "step":2
+    },{
+        "type":"range",
+        "label":"Padding Bottom",
+        "id":"padding_bottom",
+        "default":40,
+        "min":0,
+        "max":200,
+        "step":2
+    }
+    ],
+    "blocks": [{
+        "type":"text",
+        "name":"Feature",
+        "settings":[{
+            "type":"richtext",
+            "label":"Content",
+            "id":"content",
+        }]
+    }],
+    "presets": [{
+        "name":"MM Distributor Form"
+    }]
+}
+{% endschema %}

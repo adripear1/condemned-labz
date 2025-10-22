@@ -1,0 +1,67 @@
+<style>
+  .cd_tr--main{
+    padding: 30px;
+  }
+  .cd_tr--main #carousel-top-panel{
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .cd_tr--main .yotpo-reviews-carousel .headline, .cd_tr--main .yotpo .sr-only, .cd_tr--main .carousel-arrows,
+  .cd_tr--main .yotpo-reviews-carousel .carousel-display-wrapper .scroller, .cd_tr--main .label-with-tooltip.carousel-tool-tip{
+    display:none !important;
+  }
+  .cd_tr--main .carousel-reviews-bottom-line {
+    float: none !important;
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .cd_tr--main .yotpo-reviews-carousel .carousel-display-wrapper #carousel-top-panel .yotpo-icon-star, 
+  .cd_tr--main .yotpo-reviews-carousel .carousel-display-wrapper #carousel-top-panel .yotpo-icon-half-star{
+    color: {{section.settings.star_color}} !important;
+    font-size: 20px !important;
+  }
+  .cd_tr--main .yotpo-num-of-reviews{
+    color: #fff !important;
+    font-size: 14px !important;
+    margin-left: 20px !important;
+  }
+</style>
+
+
+<div class="cd_tr--main" style="background:{{ section.settings.bg_color }}">
+  <div class="yotpo yotpo-reviews-carousel" data-background-color="transparent" data-mode="top_rated" data-type="both" data-count="9" data-show-bottomline="1" data-autoplay-enabled="1" data-autoplay-speed="3000" data-show-navigation="1"> </div>
+</div>
+
+{% schema %}
+  {
+    "name": "MM Total Reviews",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background",
+        "default": "#141010"
+      },
+      {
+        "type": "color",
+        "id": "star_color",
+        "label": "Star Color",
+        "default": "#fff"
+      }
+    ],
+    "presets": [
+    {
+      "name": "MM Total Reviews"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,90 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "mm_scrolling_text_Dny4Pa": {
+      "type": "MM-scrolling-text",
+      "blocks": {
+        "scrolling_text_YNW8pn": {
+          "type": "Scrolling_Text",
+          "settings": {
+            "text": "AFFIRM, AFTERPAY, SEZZLE 💰 ENJOY NOW, PAY LATER"
+          }
+        }
+      },
+      "block_order": [
+        "scrolling_text_YNW8pn"
+      ],
+      "custom_css": [
+        "* {font-size: 22px;}",
+        "@media (max-width: 750px) {* {font-size: 18px; }}"
+      ],
+      "name": "MM Scrolling text",
+      "settings": {
+        "show_svg": false,
+        "bg_color": "#ffba2e",
+        "border_color": "#ffffff",
+        "text_color": "#000000",
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "footer": {
+      "type": "MM-footer",
+      "blocks": {
+        "menu_nmt44Y": {
+          "type": "menu",
+          "settings": {
+            "menu_heading": "About",
+            "menu": "information"
+          }
+        },
+        "menu_mAdUqJ": {
+          "type": "menu",
+          "settings": {
+            "menu_heading": "Information",
+            "menu": "footer"
+          }
+        },
+        "newsletter_QcECmR": {
+          "type": "newsletter",
+          "settings": {
+            "heading": "SUBSCRIBE",
+            "text": "Sign up to get the latest on sales, new releases and more …"
+          }
+        }
+      },
+      "block_order": [
+        "menu_nmt44Y",
+        "menu_mAdUqJ",
+        "newsletter_QcECmR"
+      ],
+      "settings": {
+        "bg_color": "#f2f2f2",
+        "text_color": "#121212",
+        "text": "",
+        "copyright_text": "© 2025 Condemned Labz",
+        "bottom_headline": "",
+        "bottom_text": "†EXERCISE AND PROPER DIET ARE NECESSARY TO ACHIEVE AND MAINTAIN WEIGHT LOSS. RESULTS VARY DEPENDING UPON STARTING POINT, GOALS, AND EFFORT. †THIS STATEMENT HAS NOT BEEN EVALUATED BY THE FDA. THIS PRODUCT IS NOT INTENDED TO DIAGNOSE, TREAT, CURE, OR PREVENT ANY DISEASE. †ALWAYS REFERENCE THE INGREDIENTS AND DIRECTIONS ON THE PRODUCT LABEL FOR THE PRODUCT(S) †MUST BE 18 YEARS OR OLDER TO PURCHASE",
+        "fb_link": "https://www.facebook.com/condemnedlabzofficial",
+        "youtube_link": "",
+        "insta_link": "https://www.instagram.com/condemnedlabz/"
+      }
+    }
+  },
+  "order": [
+    "mm_scrolling_text_Dny4Pa",
+    "footer"
+  ]
+}

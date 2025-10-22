@@ -1,0 +1,335 @@
+{{ 'mm-blocks-with-image.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  #shopify-section-{{ section.id }} .mm-columns-with-image-wrapper {
+    background-color: {{ section.settings.background_color }};
+  }
+{% endstyle %}
+
+<div class="mm-columns-with-image-wrapper{% if section.settings.styling_class != blank %} {{ section.settings.styling_class }}{% endif %}">
+  <div class="container">
+    <div class="col-img-inner">
+      <div class="blocks-content-wrapper">
+        {% for block in section.blocks %}
+          {% if block.type == 'content' %}
+            <div class="blocks-content">
+              <h2 class="heading">{{ block.settings.heading }}</h2>
+              <div class="description">{{ block.settings.description }}</div>
+            </div>
+          {% endif %}
+          {% if block.type == 'video' %}
+            <div class="video-wrapper">
+              {{ block.settings.video | video_tag: autoplay: block.settings.autoplay, loop: true, muted: block.settings.muted, playsinline: true, controls: block.settings.controls, image_size: '800x' }}
+            </div>
+          {% endif %}
+        {% endfor %}
+
+        <ul class="blocks-list">
+          {% for block in section.blocks %}
+            {% if block.type == 'block' %}
+              <li class="block-item">
+                <div class="block-icon-wrap">
+                  <div class="block-icon">
+                    <img
+                      src="{{ block.settings.block_icon | image_url }}"
+                      alt="{{ block.settings.block_title }}"
+                      width="{{ block.settings.block_icon.width }}"
+                      height="{{ block.settings.block_icon.height }}"
+                      class="block-icon-image"
+                    >
+                  </div>
+                </div>
+                <div class="block--wrapper">
+                  <p class="block-title">{{ block.settings.block_title }}</p>
+                  {% if block.settings.block_description != blank %}
+                    <p class="block-description">{{ block.settings.block_description }}</p>
+                  {% endif %}
+              </div>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+
+        {% for block in section.blocks %}
+          {% if block.type == 'image_picker' %}
+            <div class="image-wrapper">
+              <img
+                srcset="
+                  {%- if block.settings.image_mobile.width >= 165 -%}{{ block.settings.image_mobile | image_url: width: 165 }} 165w,{%- endif -%}
+                  {%- if block.settings.image_mobile.width >= 360 -%}{{ block.settings.image_mobile | image_url: width: 360 }} 360w,{%- endif -%}
+                  {%- if block.settings.image_mobile.width >= 535 -%}{{ block.settings.image_mobile | image_url: width: 535 }} 535w,{%- endif -%}
+                  {%- if block.settings.image_mobile.width >= 750 -%}{{ block.settings.image_mobile | image_url: width: 750 }} 750w,{%- endif -%}
+                  {%- if block.settings.image_mobile.width >= 940 -%}{{ block.settings.image_mobile | image_url: width: 940 }} 940w,{%- endif -%}
+                  {%- if block.settings.image_mobile.width >= 1066 -%}{{ block.settings.image_mobile | image_url: width: 1066 }} 1066w,{%- endif -%}
+                  {{ block.settings.image_mobile | image_url }} {{ block.settings.image_mobile.width }}w
+                "
+                src="{{ block.settings.image_mobile | image_url: width: 750 }}"
+                sizes="(max-width: 750px) 100vw, 1500px"
+                alt="{{ block.settings.image_mobile.alt | escape }}"
+                width="{{ block.settings.image_mobile.width }}"
+                height="{{ block.settings.image_mobile.height }}"
+                class="mobile-image"
+              >
+              <img
+                srcset="
+                  {%- if block.settings.image_desktop.width >= 165 -%}{{ block.settings.image_desktop | image_url: width: 165 }} 165w,{%- endif -%}
+                  {%- if block.settings.image_desktop.width >= 360 -%}{{ block.settings.image_desktop | image_url: width: 360 }} 360w,{%- endif -%}
+                  {%- if block.settings.image_desktop.width >= 535 -%}{{ block.settings.image_desktop | image_url: width: 535 }} 535w,{%- endif -%}
+                  {%- if block.settings.image_desktop.width >= 750 -%}{{ block.settings.image_desktop | image_url: width: 750 }} 750w,{%- endif -%}
+                  {%- if block.settings.image_desktop.width >= 940 -%}{{ block.settings.image_desktop | image_url: width: 940 }} 940w,{%- endif -%}
+                  {%- if block.settings.image_desktop.width >= 1066 -%}{{ block.settings.image_desktop | image_url: width: 1066 }} 1066w,{%- endif -%}
+                  {{ block.settings.image_desktop | image_url }} {{ block.settings.image_desktop.width }}w
+                "
+                src="{{ block.settings.image_desktop | image_url: width: 750 }}"
+                sizes="(max-width: 750px) 100vw, 1500px"
+                alt="{{ block.settings.image_desktop.alt | escape }}"
+                width="{{ block.settings.image_desktop.width }}"
+                height="{{ block.settings.image_desktop.height }}"
+                class="desktop-image"
+              >
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+    <div class="form--wrapper{% if section.settings.enable_faq %} enable__faq{% endif %}">
+      {% if section.settings.form_type == 'ambassador' %}
+        {% render 'mm-ambassador-form',
+          social_policy: section.settings.social_policy,
+          privacy_policy: section.settings.privacy_policy,
+          form_title: section.settings.form_title,
+          form_subtitle: section.settings.form_subtitle
+        %}
+      {% else %}
+        {% render 'mm-distributors-form',
+          social_policy: section.settings.social_policy,
+          privacy_policy: section.settings.privacy_policy,
+          form_title: section.settings.form_title,
+          form_subtitle: section.settings.form_subtitle
+        %}
+      {% endif %}
+      {% if section.settings.enable_faq %}
+        <div class="faq--block">
+          <div class="faq--inner_wrapper">
+            <div class="detail--header">
+              <h2 class="faq-title">{{ section.settings.faq_title }}</h2>
+              <span class="arrow--icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M6 7L12 13L18 7L20 9L12 17L4 9L6 7Z" fill="white"/>
+                </svg>
+              </span>
+            </div>
+            <div class="detail--body">
+              {% assign faq_index = 0 %}
+              {% for block in section.blocks %}
+                {% case block.type %}
+                  {% when 'faq' %}
+                    {% assign faq_index = faq_index | plus: 1 %}
+                    <div class="faq--item">
+                      <div class="faq--item--header">
+                        <span class="numbering">{{ faq_index }}.</span>
+                        <h4 class="faq--item-title">{{ block.settings.faq_title }}</h4>
+                      </div>
+                      <p class="faq--item-description">{{ block.settings.faq_description }}</p>
+                    </div>
+                {% endcase %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+    </div>
+  </div>
+</div>
+
+{% if section.settings.enable_faq %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqHeader = document.querySelector('.detail--header');
+
+      faqHeader.addEventListener('click', function() {
+        faqHeader.closest('.faq--block').classList.toggle('active');
+      });
+    });
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "MM Blocks with Image",
+  "settings": [
+    {
+      "type":"text",
+      "label":"Styling Class",
+      "id":"styling_class"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#fff"
+    },
+    {
+      "type": "header",
+      "content": "Form Settings"
+    },
+    {
+      "type": "text",
+      "id": "form_title",
+      "label": "Title",
+      "default": "Let's Get Started"
+    },
+    {
+      "type": "textarea",
+      "id": "form_subtitle",
+      "label": "Subtitle",
+      "default": "Sign up for the Iron Infamy today!"
+    },
+    {
+      "type": "url",
+      "id": "social_policy",
+      "label": "Social Media Policy"
+    },
+    {
+      "type": "url",
+      "id": "privacy_policy",
+      "label": "Privacy Policy"
+    },{
+      "type":"select",
+      "label":"Select Form",
+      "id":"form_type",
+      "options":[
+        {
+          "value":"ambassador",
+          "label":"Ambassador"
+        },
+        {
+          "value":"distributor",
+          "label":"Distributor"
+        }
+      ],
+      "default":"ambassador"
+    },{
+      "type":"checkbox",
+      "label":"Enable FAQ",
+      "id":"enable_faq",
+      "default": false
+    },{
+      "type":"textarea",
+      "id":"faq_title",
+      "label":"FAQ Title",
+      "visible_if": "{{ section.settings.enable_faq }}"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content",
+      "name": "Content",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "heading",
+          "label": "Heading",
+          "default": "BENEFITS OF OUR PROGRAM"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>We are committed to providing the best service possible. </p>"
+        }
+      ]
+    },{
+      "type":"faq",
+      "name":"FAQ",
+      "settings":[{
+        "type":"text",
+        "label":"Title",
+        "id":"faq_title",
+      },{
+        "type":"textarea",
+        "label":"Description",
+        "id":"faq_description",
+      }]
+    },
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "block_icon",
+          "label": "Icon"
+        },
+        {
+          "type": "textarea",
+          "id": "block_title",
+          "label": "Title",
+          "default": "Block Title"
+        },{
+          "type":"textarea",
+          "label":"Block Description",
+          "id":"block_description"
+        }
+      ]
+    },{
+      "type":"video",
+      "name":"Video",
+      "settings":[{
+        "type":"video",
+        "id":"video",
+        "label":"Video",
+      },{
+        "type":"checkbox",
+        "id":"autoplay",
+        "label":"Autoplay",
+        "default": true
+      },{
+        "type":"checkbox",
+        "label":"Muted",
+        "id":"muted",
+        "default": true
+      },{
+        "type":"checkbox",
+        "id":"controls",
+        "label":"Show Controls",
+        "default": false
+      }]
+    },
+    {
+      "type": "image_picker",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Image (Mobile)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_desktop",
+          "label": "Image (Desktop)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MM Blocks with Image",
+      "blocks": [
+        {
+          "type": "content"
+        },
+        {
+          "type": "image_picker",
+          "settings": {
+            "image_mobile": "shopify://shop_images/Rectangle_9.png",
+            "image_desktop": "shopify://shop_images/Rectangle_9.png"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

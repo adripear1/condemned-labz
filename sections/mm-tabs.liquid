@@ -1,0 +1,664 @@
+<style>
+    .mt_custom_tabs {
+      padding: 50px 0;
+    }
+    .mt_custom_tabs .tabs{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      margin-bottom: 40px;
+    }
+    .mt_custom_tabs .tablink{
+      font-family: "pill-gothic-900mg", Sans-serif;
+      font-size: 1em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      background-color: #f1f1f1;
+      color: #333;
+      position: relative;
+      padding: 1em 1.5em;
+      border: none;
+    }
+    .mt_custom_tabs .tablink.active{
+      background-color: #fab20a;
+      color:#fff;
+    }
+    .mt_custom_tabs .tablink.active:after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0px;
+      right: 0px;
+      margin: 0 auto;
+      z-index: 1;
+      width: 0px;
+      height: 0px;
+      border-left: 10px solid rgba(0, 0, 0, 0);
+      border-right: 10px solid rgba(0, 0, 0, 0);
+      border-top: 10px solid #fab20a;
+      border-bottom: 0px;
+      display: block;
+    }
+    .mt_custom_tabs .tab_col {
+      max-width: 30%;
+      width: 100%;
+    }
+    .mt_custom_tabs .card_img {
+      width: 100%;
+      margin-bottom: 15px;
+      height: 233px;
+    }
+    .mt_custom_tabs .card_img img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .mt_custom_tabs h3{
+      color: #52378a;
+      font-family: "pill-gothic-900mg", Sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      margin: 0;
+      padding-bottom: 15px;
+      line-height: 120%;
+      text-align: center;
+    }
+    .mt_custom_tabs h2{
+      color: #333333;
+      font-family: "pill-gothic-600mg", Sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 0;
+      padding-bottom: 15px;
+      line-height: 120%;
+      text-align: center;
+    }
+    .mt_custom_tabs .desc p {
+      margin: 0;
+      text-align: center;
+    }
+    .mt_custom_tabs .desc p a{
+      color: #333;
+      text-decoration: none;
+      text-align: center;
+      font-size: 16px;
+      line-height: 120%;
+      font-weight: 700;
+    }
+    .mm_tab_btn {
+        display:none;
+    }
+     .card_wrapper {
+      display: flex;
+      grid-column-gap: 30px;
+      grid-row-gap: 35px;
+      width: 100%;
+      justify-content:center;
+    }
+    @media (max-width: 991px){
+      .tabs {
+        display: none;
+      }
+      .mm_tab_btn {
+        display: block;
+        width: 100%;
+        padding: 20px 10px;
+        background-color: #f1f1f1;
+        color: #000;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 16px;
+        border-bottom: 2px solid #fff;
+      }
+      .show{
+        background-color: #fab20a !important;
+        color: #fff;
+      }
+      .accordion {
+        display: block;
+      }
+      
+      .tabcontent {
+        display: block !important;
+      }
+      .card_wrapper {
+        display:none;
+      }
+      .card_wrapper.active {
+        display: flex;
+        margin: 20px 0;
+      }
+      .card_wrapper.active ~ .mm_tab_btn {
+        background-color: #530303;
+      }
+      .mt_custom_tabs .tab_col {
+        max-width: 46%;
+      }
+    }
+      @media (max-width: 767px){
+      .card_wrapper.active {
+        flex-direction: column;
+      }
+      .mt_custom_tabs .tab_col {
+          max-width: 100%;
+      }
+    }
+    </style>
+    <section class="mt_custom_tabs">
+      <div class="page-width">
+        <div class="tabs">
+            {% if section.settings.tab1_txt !=blank %}
+          <button class="tablink active" onclick="openTab(event, 'africa_tab')">{{ section.settings.tab1_txt }}</button>
+          {% endif %}
+          {% if section.settings.tab2_txt !=blank %}
+          <button class="tablink" onclick="openTab(event, 'asia_tab')">{{ section.settings.tab2_txt }}</button>
+        {% endif %}
+        {% if section.settings.tab3_txt !=blank %}
+          <button class="tablink" onclick="openTab(event, 'ast_ocean_tab')">{{ section.settings.tab3_txt }}</button>
+        {% endif %}
+        {% if section.settings.tab4_txt !=blank %}
+          <button class="tablink" onclick="openTab(event, 'carribean_tab')">{{ section.settings.tab4_txt }}</button>
+        {% endif %}
+        {% if section.settings.tab5_txt !=blank %}
+          <button class="tablink" onclick="openTab(event, 'europe_tab')">{{ section.settings.tab5_txt }}</button>
+        {% endif %}
+        {% if section.settings.tab6_txt !=blank %}
+          <button class="tablink" onclick="openTab(event, 'n_america_tab')"> {{ section.settings.tab6_txt }}</button>
+        {% endif %}
+        {% if section.settings.tab7_txt !=blank %}
+          <button class="tablink" onclick="openTab(event, 's_america_tab')"> {{ section.settings.tab7_txt }}</button>
+        {% endif %}
+        </div>
+        <div class="tabs_inner">
+          <div id="africa_tab" class="tabcontent">
+            <div class="mm_tab_btn show">{{ section.settings.tab1_txt }}</div>
+             <div class="card_wrapper">
+                {% for block in section.blocks %}
+                {% if block.type == 'tab_1' %}
+                <div class="tab_col">
+                  {% if block.settings.card_image != blank %}
+                    <div class="card_img">{{ block.settings.card_image | image_url: width: block.settings.card_image.width | image_tag: loading: 'lazy' }}</div>
+                  {% endif %}
+                  {% if block.settings.top_text != blank %}
+                    <h3>{{ block.settings.top_text }}</h3>
+                  {% endif %}
+                  {% if block.settings.headline != blank %}
+                    <h2>{{ block.settings.headline }}</h2>
+                  {% endif %}
+                  {% if block.settings.desc != blank %}
+                    <div class="desc">{{ block.settings.desc }}</div>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+             </div>
+          </div>
+          <div id="asia_tab" class="tabcontent" style="display:none">
+              <div class="mm_tab_btn">{{ section.settings.tab2_txt }}</div>
+                 <div class="card_wrapper">
+            {% for block in section.blocks %}
+              {% if block.type == 'tab_2' %}
+                <div class="tab_col">
+                  {% if block.settings.card_image != blank %}
+                    <div class="card_img">{{ block.settings.card_image | image_url: width: block.settings.card_image.width | image_tag: loading: 'lazy' }}</div>
+                  {% endif %}
+                  {% if block.settings.top_text != blank %}
+                    <h3>{{ block.settings.top_text }}</h3>
+                  {% endif %}
+                  {% if block.settings.headline != blank %}
+                    <h2>{{ block.settings.headline }}</h2>
+                  {% endif %}
+                  {% if block.settings.desc != blank %}
+                    <div class="desc">{{ block.settings.desc }}</div>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+          <div id="ast_ocean_tab" class="tabcontent" style="display:none">
+              <div class="mm_tab_btn">{{ section.settings.tab3_txt }}</div>
+                 <div class="card_wrapper">
+            {% for block in section.blocks %}
+              {% if block.type == 'tab_3' %}
+                <div class="tab_col">
+                  {% if block.settings.card_image != blank %}
+                    <div class="card_img">{{ block.settings.card_image | image_url: width: block.settings.card_image.width | image_tag: loading: 'lazy' }}</div>
+                  {% endif %}
+                  {% if block.settings.top_text != blank %}
+                    <h3>{{ block.settings.top_text }}</h3>
+                  {% endif %}
+                  {% if block.settings.headline != blank %}
+                    <h2>{{ block.settings.headline }}</h2>
+                  {% endif %}
+                  {% if block.settings.desc != blank %}
+                    <div class="desc">{{ block.settings.desc }}</div>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+           </div>
+          </div>
+          <div id="carribean_tab" class="tabcontent" style="display:none">
+              <div class="mm_tab_btn">{{ section.settings.tab4_txt }}</div>
+                 <div class="card_wrapper">
+            {% for block in section.blocks %}
+              {% if block.type == 'tab_4' %}
+                <div class="tab_col">
+                  {% if block.settings.card_image != blank %}
+                    <div class="card_img">{{ block.settings.card_image | image_url: width: block.settings.card_image.width | image_tag: loading: 'lazy' }}</div>
+                  {% endif %}
+                  {% if block.settings.top_text != blank %}
+                    <h3>{{ block.settings.top_text }}</h3>
+                  {% endif %}
+                  {% if block.settings.headline != blank %}
+                    <h2>{{ block.settings.headline }}</h2>
+                  {% endif %}
+                  {% if block.settings.desc != blank %}
+                    <div class="desc">{{ block.settings.desc }}</div>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          </div>
+          <div id="europe_tab" class="tabcontent" style="display:none">
+              <div class="mm_tab_btn">{{ section.settings.tab5_txt }}</div>
+                 <div class="card_wrapper">
+            {% for block in section.blocks %}
+              {% if block.type == 'tab_5' %}
+                <div class="tab_col">
+                  {% if block.settings.card_image != blank %}
+                    <div class="card_img">{{ block.settings.card_image | image_url: width: block.settings.card_image.width | image_tag: loading: 'lazy' }}</div>
+                  {% endif %}
+                  {% if block.settings.top_text != blank %}
+                    <h3>{{ block.settings.top_text }}</h3>
+                  {% endif %}
+                  {% if block.settings.headline != blank %}
+                    <h2>{{ block.settings.headline }}</h2>
+                  {% endif %}
+                  {% if block.settings.desc != blank %}
+                    <div class="desc">{{ block.settings.desc }}</div>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          </div>
+          <div id="n_america_tab" class="tabcontent" style="display:none">
+              <div class="mm_tab_btn">{{ section.settings.tab6_txt }}</div>
+                 <div class="card_wrapper">
+            {% for block in section.blocks %}
+              {% if block.type == 'tab_6' %}
+                <div class="tab_col">
+                  {% if block.settings.card_image != blank %}
+                    <div class="card_img">{{ block.settings.card_image | image_url: width: block.settings.card_image.width | image_tag: loading: 'lazy' }}</div>
+                  {% endif %}
+                  {% if block.settings.top_text != blank %}
+                    <h3>{{ block.settings.top_text }}</h3>
+                  {% endif %}
+                  {% if block.settings.headline != blank %}
+                    <h2>{{ block.settings.headline }}</h2>
+                  {% endif %}
+                  {% if block.settings.desc != blank %}
+                    <div class="desc">{{ block.settings.desc }}</div>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          </div>
+          <div id="s_america_tab" class="tabcontent" style="display:none">
+              <div class="mm_tab_btn">{{ section.settings.tab7_txt }}</div>
+                 <div class="card_wrapper">
+            {% for block in section.blocks %}
+              {% if block.type == 'tab_7' %}
+                <div class="tab_col">
+                  {% if block.settings.card_image != blank %}
+                    <div class="card_img">{{ block.settings.card_image | image_url: width: block.settings.card_image.width | image_tag: loading: 'lazy' }}</div>
+                  {% endif %}
+                  {% if block.settings.top_text != blank %}
+                    <h3>{{ block.settings.top_text }}</h3>
+                  {% endif %}
+                  {% if block.settings.headline != blank %}
+                    <h2>{{ block.settings.headline }}</h2>
+                  {% endif %}
+                  {% if block.settings.desc != blank %}
+                    <div class="desc">{{ block.settings.desc }}</div>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+    function openTab(evt, tabName) {
+      var tabcontent = document.getElementById(tabName);
+      if (!tabcontent) {
+        console.error('Tab content with ID ' + tabName + ' not found.');
+        return;
+      }
+      
+      var i, tablinks;
+    
+      var allTabContents = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < allTabContents.length; i++) {
+        allTabContents[i].style.display = "none";
+      }
+    
+      var allTabLinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < allTabLinks.length; i++) {
+        allTabLinks[i].classList.remove("active");
+      }
+    
+      tabcontent.style.display = "flex";
+    
+      evt.currentTarget.classList.add("active");
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      var africaTab = document.getElementById("africa_tab");
+      if (africaTab) {
+        africaTab.style.display = "flex";
+      } else {
+        console.error('Africa tab content not found.');
+      }
+    
+      var tabButtons = document.querySelectorAll(".tablink[data-tab]");
+    
+      for (var i = 0; i < tabButtons.length; i++) {
+        tabButtons[i].addEventListener("click", function(event) {
+          var tabName = event.currentTarget.getAttribute("data-tab");
+    
+          openTab(event, tabName);
+        });
+      }
+    
+      var activeTabButton = document.querySelector('.tablink.active');
+      if (activeTabButton) {
+        activeTabButton.click();
+      } else {
+        console.error('Active tab button not found.');
+      }
+    });
+    
+    window.onerror = function (msg, url, lineNo, columnNo, error) {
+      console.error('Error: ' + msg, 'Script: ' + url, 'Line: ' + lineNo, 'Column: ' + columnNo, 'Error object: ' + JSON.stringify(error));
+      return false;
+    };
+    </script>
+    <script>
+     function toggleAccordion() {
+      var tabs = document.querySelector('.tabs');
+      var accordion = document.querySelector('.accordion');
+    
+      if (window.innerWidth <= 991) {
+        tabs.style.display = 'none';
+        accordion.style.display = 'block';
+      } else {
+        tabs.style.display = 'flex';
+        accordion.style.display = 'none';
+      }
+    }
+    var tabButtons = document.getElementsByClassName("mm_tab_btn");
+    
+    for (var i = 0; i < tabButtons.length; i++) {
+        tabButtons[i].addEventListener("click", function() {
+            var nextCardWrapper = this.nextElementSibling;
+    
+            if (nextCardWrapper.classList.contains("card_wrapper")) {
+                nextCardWrapper.classList.toggle("active");
+            }
+        });
+    }
+    
+    window.addEventListener('resize', toggleAccordion);
+    window.addEventListener('DOMContentLoaded', toggleAccordion);
+    </script>
+    {% schema %}
+    {
+      "name": "MM Tabs",
+      "tag": "section",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab1_txt",
+          "label": "Tab 1 Text",
+          "default": "Tab 1"
+        },
+        {
+          "type": "text",
+          "id": "tab2_txt",
+          "label": "Tab 2 Text",
+          "default": "Tab 2"
+        },
+        {
+          "type": "text",
+          "id": "tab3_txt",
+          "label": "Tab 3 Text",
+          "default": "Tab 3"
+        },
+        {
+          "type": "text",
+          "id": "tab4_txt",
+          "label": "Tab 4 Text",
+          "default": "Tab 4"
+        },
+        {
+          "type": "text",
+          "id": "tab5_txt",
+          "label": "Tab 5 Text",
+          "default": "Tab 5"
+        },
+        {
+          "type": "text",
+          "id": "tab6_txt",
+          "label": "Tab 6 Text",
+          "default": "Tab 6"
+        },
+        {
+          "type": "text",
+          "id": "tab7_txt",
+          "label": "Tab 7 Text",
+          "default": "Tab 7"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "tab_1",
+          "name": "Tab 1",
+          "settings": [
+            {
+              "type": "image_picker",
+              "label": "Card Image",
+              "id": "card_image"
+            },
+            {
+              "type": "text",
+              "label": "Top Text",
+              "id": "top_text"
+            },
+            {
+              "type": "text",
+              "label": "Headline",
+              "id": "headline"
+            },
+            {
+              "type": "richtext",
+              "label": "Description",
+              "id": "desc"
+            }
+          ]
+        },
+        {
+          "type": "tab_2",
+          "name": "Tab 2",
+          "settings": [
+            {
+              "type": "image_picker",
+              "label": "Card Image",
+              "id": "card_image"
+            },
+            {
+              "type": "text",
+              "label": "Top Text",
+              "id": "top_text"
+            },
+            {
+              "type": "text",
+              "label": "Headline",
+              "id": "headline"
+            },
+            {
+              "type": "richtext",
+              "label": "Description",
+              "id": "desc"
+            }
+          ]
+        },
+        {
+          "type": "tab_3",
+          "name": "Tab 3",
+          "settings": [
+            {
+              "type": "image_picker",
+              "label": "Card Image",
+              "id": "card_image"
+            },
+            {
+              "type": "text",
+              "label": "Top Text",
+              "id": "top_text"
+            },
+            {
+              "type": "text",
+              "label": "Headline",
+              "id": "headline"
+            },
+            {
+              "type": "richtext",
+              "label": "Description",
+              "id": "desc"
+            }
+          ]
+        },
+        {
+          "type": "tab_4",
+          "name": "Tab 4",
+          "settings": [
+            {
+              "type": "image_picker",
+              "label": "Card Image",
+              "id": "card_image"
+            },
+            {
+              "type": "text",
+              "label": "Top Text",
+              "id": "top_text"
+            },
+            {
+              "type": "text",
+              "label": "Headline",
+              "id": "headline"
+            },
+            {
+              "type": "richtext",
+              "label": "Description",
+              "id": "desc"
+            }
+          ]
+        },
+        {
+          "type": "tab_5",
+          "name": "Tab 5",
+          "settings": [
+            {
+              "type": "image_picker",
+              "label": "Card Image",
+              "id": "card_image"
+            },
+            {
+              "type": "text",
+              "label": "Top Text",
+              "id": "top_text"
+            },
+            {
+              "type": "text",
+              "label": "Headline",
+              "id": "headline"
+            },
+            {
+              "type": "richtext",
+              "label": "Description",
+              "id": "desc"
+            }
+          ]
+        },
+        {
+          "type": "tab_6",
+          "name": "Tab 6",
+          "settings": [
+            {
+              "type": "image_picker",
+              "label": "Card Image",
+              "id": "card_image"
+            },
+            {
+              "type": "text",
+              "label": "Top Text",
+              "id": "top_text"
+            },
+            {
+              "type": "text",
+              "label": "Headline",
+              "id": "headline"
+            },
+            {
+              "type": "richtext",
+              "label": "Description",
+              "id": "desc"
+            }
+          ]
+        },
+        {
+          "type": "tab_7",
+          "name": "Tab 7",
+          "settings": [
+            {
+              "type": "image_picker",
+              "label": "Card Image",
+              "id": "card_image"
+            },
+            {
+              "type": "text",
+              "label": "Top Text",
+              "id": "top_text"
+            },
+            {
+              "type": "text",
+              "label": "Headline",
+              "id": "headline"
+            },
+            {
+              "type": "richtext",
+              "label": "Description",
+              "id": "desc"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "MM Tabs"
+        }
+      ]
+    }
+    {% endschema %}

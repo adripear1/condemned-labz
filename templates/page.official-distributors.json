@@ -1,0 +1,149 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_xCkenq": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_bzcWjK": {
+          "type": "heading",
+          "settings": {
+            "heading": "OFFICIAL DISTRIBUTORS",
+            "heading_size": "h0"
+          }
+        }
+      },
+      "block_order": [
+        "heading_bzcWjK"
+      ],
+      "custom_css": [
+        ".banner__box.gradient {padding: 0px; background: transparent;}"
+      ],
+      "settings": {
+        "section_custom_class": "",
+        "image": "shopify:\/\/shop_images\/image_2.png",
+        "banner_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "allow__video": false,
+        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "mob__video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "accent-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "mm_tabs_8wxraM": {
+      "type": "mm-tabs",
+      "blocks": {
+        "tab_1_m7jgRe": {
+          "type": "tab_1",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/ProteinsZone_Logo_480x480_d96a92dd-0ed9-46a7-8096-ff128c720f45.webp",
+            "top_text": "",
+            "headline": "Official Distributor Of The Middle East & Asia",
+            "desc": "<p>+971 561633683  <\/p><p>www.proteinszone.com<\/p><p>cs@proteinszone.com<\/p>"
+          }
+        },
+        "tab_1_Pyi37E": {
+          "type": "tab_1",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/image2_large_19f22f4c-3c08-4150-8e10-b4be79eb0756.png",
+            "top_text": "",
+            "headline": "Nicolas Hurtado | Director",
+            "desc": "<p>302 Lower Addiscombe Rd, <\/p><p>Croydon CR0 7AE<br\/>Phone: 020 8655 1585<\/p><p> mobile: +44 (0) 7802 701 565 <a href=\"http:\/\/novasportsdistribution.co.uk\/\" target=\"_blank\">novasportsdistribution.co.uk<\/a><\/p>"
+          }
+        },
+        "tab_2_pditPq": {
+          "type": "tab_2",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/image0_480x480_1cd35aac-db08-4f51-b7b3-d11274881fb0.webp",
+            "top_text": "",
+            "headline": " ProteinXpress India",
+            "desc": "<p>G-84, Udey Vihar<\/p><p>New Delhi-110041<\/p><p>Ph No- +919990370987<\/p><p>proteinxpressindia@gmail.com <\/p>"
+          }
+        },
+        "tab_2_zGVFWt": {
+          "type": "tab_2",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/Screenshot_2024-04-16_at_5.44.31_PM_480x480_35cdb632-cd68-407c-9db3-d81e554c48cd.png",
+            "top_text": "",
+            "headline": "True nutrition performance (TNP)",
+            "desc": "<p>Plot no 46 \/ sahibabad U.P<br\/>INDIA<\/p><p><br\/><a href=\"mailto:Tnpdistributor@gmail.com\" target=\"_blank\">Tnpdistributor@gmail.com<\/a><\/p>"
+          }
+        },
+        "tab_2_kdXeRC": {
+          "type": "tab_2",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/PHOTO-2024-04-17-04-52-12_480x480_4b04cda6-01a3-47c8-8f5d-a78fd4172dac.webp",
+            "top_text": "",
+            "headline": "Next Move",
+            "desc": "<p>K-618, Ground Floor, Rangpuri Extension<\/p><p>Near Tata Telco Bus Service Station<\/p><p>New Delhi 110037<\/p><p>Tel +91 9891238727 <\/p><p>info@nextmove.site<\/p>"
+          }
+        },
+        "tab_3_La8PJW": {
+          "type": "tab_3",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/582868e7-2da6-4038-b8ae-3f6e29b684f0_480x480_3dc9e1fd-45d7-400a-9724-c9a7f2103593.webp",
+            "top_text": "",
+            "headline": "Official Distributor Of Pakistan",
+            "desc": "<p>+92 3333316178<\/p><p>Orders@theproteincompany.pk<\/p><p>21 Mirza Afzal Road Sialkot Cantt Pakistan<\/p>"
+          }
+        },
+        "tab_4_j7bqUz": {
+          "type": "tab_4",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/image0_6_480x480_3b61df65-746e-4f52-942a-49d1c9a2f6cf.webp",
+            "top_text": "",
+            "headline": "Official Distributor Of Lebanon",
+            "desc": "<p>+961 81 806 800 <\/p><p>ProteinHouseAb@gmail.com<\/p><p>C.R. 3269186<\/p><p>Lebanon Masnaa- Damascus Road<\/p>"
+          }
+        },
+        "tab_3_ftDwg9": {
+          "type": "tab_3",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/image0_6_480x480_db4ac8aa-bcde-446b-bc1c-5061f37cb5c4.png",
+            "top_text": "",
+            "headline": "Official Distributor Of Pakistan",
+            "desc": "<p>+92 345830200 mystore25@outlook.com<\/p><p>310 & 311 <\/p><p>Zakariya Business AvenueKarachi Pakistan <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "tab_1_m7jgRe",
+        "tab_1_Pyi37E",
+        "tab_2_pditPq",
+        "tab_2_zGVFWt",
+        "tab_2_kdXeRC",
+        "tab_3_La8PJW",
+        "tab_4_j7bqUz",
+        "tab_3_ftDwg9"
+      ],
+      "settings": {
+        "tab1_txt": "Middle East & Asia",
+        "tab2_txt": "India",
+        "tab3_txt": "Pakistan",
+        "tab4_txt": "Lebanon",
+        "tab5_txt": "",
+        "tab6_txt": "",
+        "tab7_txt": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_xCkenq",
+    "mm_tabs_8wxraM"
+  ]
+}

@@ -1,0 +1,201 @@
+
+<style>
+  .Costom_collection_main {
+    background: #141010;
+    padding: 40px 0 65px;
+}
+
+.Costom_collection_main .container {
+    padding: 0 0 0 150px;
+    margin: 0;
+}
+ .Costom_collection_main  .one-whole.column.center.homepage_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px 50px 0;
+}
+.Costom_collection_main .title {
+    font-family: 'proxima-nova-cn' !important;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 33px;
+    text-transform: uppercase;
+    margin: 0;
+    width: inherit;
+    text-align: left;
+    color:#fff !important;
+}
+ .Costom_collection_main .one-whole.column.center.homepage_content a {
+    color: #fff !important;
+}
+.Costom_collection_main .inspiration_images {
+    width: 310px;
+    height: 420px;
+    margin-right: 15px;
+    display:block;
+}
+ .Costom_collection_main .inspiration_images img {
+    height:100%;
+    object-fit: cover;
+    width:100%;
+}
+.inspiration_images a{
+  text-decoration: none;
+}
+  .inspiration_images .RTS-fp--text h2{
+    color: white;
+  }
+ .inspiration_inner .slick-initialized .slick-slide{
+   height: 100%;
+ }
+  @media screen and (max-width:1200px){
+    .Costom_collection_main .container {
+      padding: 0 0 0 70px;
+    }
+  }
+  @media screen and (max-width:991px){
+    .Costom_collection_main .container {
+      padding: 0 0 0 50px;
+    }
+    .Costom_collection_main .one-whole.column.center.homepage_content {
+      padding: 0 50px 18px 0;
+    }
+  }
+  @media (max-width:767px){
+    .Costom_collection_main .inspiration_images{
+      width: 250px;
+      height: 280px;
+    }
+  }
+</style>
+<div class="Costom_collection_main">
+  <div class="Costom_collection_sub section container">
+    <div class="Costom_collection_title">
+      <div class="one-whole column center homepage_content "> 
+        <h2 class="title">{{ section.settings.coll_title }}</h2>
+        <a class="section" href="{{ section.settings.view_url }}"> 
+          {{ section.settings.view_text }}
+      </a> 
+    </div>
+    <div class="Costom_collection_slider">
+      <div class="Costom_collec_slider_sub">
+        <section class="">
+       
+            <div class="inspiration_inner">
+                
+                <div class="inspiration_col">
+                  {% for block in section.blocks %}
+                    {% if block.type == 'collection' %}
+    {% assign collection = block.settings.selected_collection %}
+    {% if collection %}
+                    <div class="inspiration_images">
+                     <a href="{{ collection.url }}">
+          <span class="inspiration_images">
+               <img src="{{ collection.featured_image | img_url: 'master' }}" alt="{{ collection.title }}" />
+          </span>
+        <span class="RTS-fp--text">
+          <h2>{{ collection.title }}</h2>
+        </span>
+          </a>
+                    </div>
+                    {% endif %}
+  {% endif %}
+                {% endfor %}
+                </div>
+            </div>
+       
+    </section>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  $(' .inspiration_col').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: false,
+        centerMode: false,
+        arrows: true,
+        variableWidth: true,
+        autoplaySpeed: 2000,
+        responsive: [
+                {
+                breakpoint: 1199,
+                settings: {
+                    slidesToShow: 4,
+                }
+                },
+                {
+                breakpoint: 991,
+                settings: {
+                    slidesToShow: 3,
+                }
+            },
+                {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow:1,
+                }
+            }
+        ]
+   
+});
+    
+});
+
+
+</script>
+{% schema %}
+  {
+    "name": "MM Collection Slider",
+    "settings": [
+      {
+  "type": "text",
+  "id": "coll_title",
+  "label": "Heading",
+  "default": "SHOP BY CATEGORY"
+},
+      {
+  "type": "text",
+  "id": "view_text",
+  "label": "Heading",
+  "default": "View All"
+},
+       {
+  "type": "url",
+  "id": "view_url",
+  "label": "View All"
+}
+
+    ],
+    
+  "blocks": [
+         {
+      "type": "collection",
+      "name": "Collection Block",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "selected_collection",
+          "label": "Select Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MM Collection Slider"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

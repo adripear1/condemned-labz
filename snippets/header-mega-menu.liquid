@@ -1,0 +1,185 @@
+{% comment %}
+  Renders a megamenu for the header.
+
+  Usage:
+  {% render 'header-mega-menu' %}
+{% endcomment %}
+
+<nav class="header__inline-menu">
+  <ul class="list-menu list-menu--inline" role="list">
+    {%- for link in section.settings.menu.links -%}
+      <li>
+        {%- if link.links != blank -%}
+
+        <header-menu>
+            <div id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
+              <div
+                id="HeaderMenu-{{ link.handle }}"
+                class="header__menu-item list-menu__item link focus-inset"
+              >
+                <span
+                  {%- if link.child_active %}
+                    class="header__active-menu-item"
+                  {% endif %}
+                >
+                  {{- link.title | escape -}}
+                </span>
+                {% render 'icon-caret' %}
+              </div>
+              <div
+                id="MegaMenu-Content-{{ forloop.index }}"
+                class="mega-menu__content page-width color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                tabindex="-1"
+              >
+                <div class="mega_menu_inner">
+                  <div class="mega_menu_col">
+                    <ul class="mega_menu_list" role="list">
+                        {%- for grandchildlink in link.links -%}
+                          {%  assign aa = grandchildlink.url | split:'/' %}
+                          {%  assign aaa = aa[2] %}
+                          <li id="test-{{ aaa }}-{{ forloop.parentloop.index }}-{{ forloop.index }}" class="menu-item">
+                            <a
+                              id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                              href="{{ grandchildlink.url }}"
+                              class="mega-menu__link--level-2 link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
+                              {% if grandchildlink.current %}
+                                aria-current="page"
+                              {% endif %}
+                            >
+                              {{ grandchildlink.title | escape }}
+                            </a>
+                          </li>
+                      {%- endfor -%}
+                    </ul>
+                  </div>
+                  <div class="mega_menu_col">
+
+                    {% for grandchildlink in link.links %}
+                      {%  assign aa = grandchildlink.url | split:'/' %}
+                        {%  assign aaa = aa[2] %}
+                      <div class="mega_menu_product_inner {% if forloop.index == 1 %} active {% endif %}" id="test-{{ aaa }}-{{ forloop.parentloop.index }}-{{ forloop.index }}">
+                      <div class="mega_menu_product">
+                        {%  assign collection_products = collections[aaa].products %}
+                        {% for product in collection_products  limit: 4 %}
+                          <a href="{{ product.url }}" class="menu_product_col">
+                            <div class="menu_product_img">
+                              <img src="{{ product.featured_image | img_url: 'master' }}">
+                            </div>
+                            <div class="menu_product_content">
+                              <h2>{{ product.title }}</h2>
+                              <!-- <span>{{ product.description | strip_html | truncatewords: 10 }}</span> -->
+                              <h3 class="mega_price">{{ product.price | money }}</h3>
+                            </div>
+                          </a>
+                        {% endfor %}
+                      </div>
+                      {% if collections[aaa].products.size > 4 %}<a class='mega--menu-see_more' href="{{ collections[aaa].url }}">View More</a>{%  endif %}
+                      </div>
+                    {% endfor %}
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </header-menu>
+        {%- else -%}
+          <a
+            id="HeaderMenu-{{ link.handle }}"
+            href="{{ link.url }}"
+            class="header__menu-item list-menu__item link link--text focus-inset"
+            {% if link.current %}
+              aria-current="page"
+            {% endif %}
+          >
+            <span
+              {%- if link.current %}
+                class="header__active-menu-item"
+              {% endif %}
+            >
+              {{- link.title | escape -}}
+            </span>
+          </a>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+</nav>
+<script>
+  {% comment %} document.addEventListener("DOMContentLoaded", (event) => {
+    $('header .mega_menu_product').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      dots: false,
+      variableWidth: true,
+      autoplay: false,
+      autoplaySpeed: 2000,
+      arrows: true,
+      infinite: true
+    });
+  }); {% endcomment %}
+
+document.addEventListener("DOMContentLoaded", function() {
+  const menuListMain = document.querySelectorAll('.mega_menu_inner');
+  var menuItems = document.querySelectorAll('.menu-item');
+  var megaMenuProductInners = document.querySelectorAll('.mega_menu_product_inner');
+
+  menuListMain.forEach((menu) => {
+      menu.querySelector('.mega_menu_list .menu-item').classList.add('active');
+      menu.querySelector('.mega_menu_product_inner').classList.add('active')
+  })
+
+menuItems.forEach(function(menuItem) {
+  menuItem.addEventListener('mouseover', function() {
+    var liID = this.id;
+    menuItems.forEach(item => item.classList.remove('active'));
+    menuItem.classList.add('active');
+    menuItem.closest('.mega_menu_inner').querySelectorAll('.mega_menu_product_inner').forEach(item => item.classList.remove('active'))
+
+    megaMenuProductInners.forEach(function(inner) {
+      var productID = inner.id;
+      if (liID === productID) {
+        inner.classList.add('active');
+      }
+    });
+  });
+});
+
+  
+  var menuMegaU = document.querySelectorAll('.mega-menu');
+
+    menuMegaU.forEach(function(mega, index) {
+      let enterTimeoutId;
+      let leaveTimeoutId;
+
+      mega.addEventListener('mouseenter', function() {
+        clearTimeout(enterTimeoutId);
+        clearTimeout(leaveTimeoutId);
+        enterTimeoutId = setTimeout(() => {
+          menuMegaU.forEach(menu => menu.classList.remove('active'));
+          mega.classList.add('active');
+        }, 200);
+      });
+
+      mega.addEventListener('mouseleave', function() {
+        clearTimeout(enterTimeoutId);
+        leaveTimeoutId = setTimeout(() => {
+          menuMegaU.forEach(function(megaMenu) {
+            megaMenu.classList.remove('active');
+            menuItems.forEach(item => item.classList.remove('active'));
+            megaMenuProductInners.forEach(item => item.classList.remove('active'));
+            menuListMain.forEach((menu) => {
+              menu.querySelector('.mega_menu_list .menu-item').classList.add('active');
+              menu.querySelector('.mega_menu_product_inner').classList.add('active')
+            })
+          });
+        }, 200);
+      });
+      const megaMenuContent = mega.querySelector('.mega_menu_product_inner');
+      if (megaMenuContent) {
+        megaMenuContent.addEventListener('mouseenter', function() {
+          clearTimeout(leaveTimeoutId); // Prevent menu from closing
+        });
+      }
+    });
+});
+</script>

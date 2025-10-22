@@ -1,0 +1,420 @@
+<style>
+  .mm_footer_main *{
+    font-family:'proxima-nova-cn';
+  }
+  .mm_footer_main .container{
+    max-width:1600px;
+    margin:auto;
+    padding:0 15px;
+  }
+
+  .mm_footer_logo {
+    max-width: 270px;
+    margin-bottom: 30px;
+}
+  .mm_footer_logo img{
+    width: 100%;
+    object-fit:contain;
+}
+  .mm_footer_socials{
+    display:flex;
+    
+  }
+  .mm_footer_socials a{
+    display:flex;
+  }
+  .mm_footer_main p {
+    margin: 0;
+    padding-bottom: 20px;
+  } 
+  .mm_footer_main ul{
+    list-style:none;
+    margin: 0;
+    padding: 0;
+  }
+  .mm_footer_main ul a{
+    text-decoration:none;
+    font-size: 14px;
+  }
+  .mm_footer_main h4{
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .mm_footer_main .mm_footer_inner {
+    display: flex;
+    justify-content: space-between;
+}
+  .mm_footer_main .mm_footer_content {
+    max-width: 500px;
+    width: 100%;
+}
+  .mm_footer_main .mm_footer_lists{
+    display: flex;
+    gap: 50px;
+  }
+  .mm_footer_main .mm_footer_list {
+    min-width: 170px;
+}
+  .mm_footer_main .mm_footer_copyright{
+    text-align: left;
+    padding: 20px 0;
+    border-bottom: 1px solid;
+  }
+
+  .mm_footer_main .field{
+    flex-direction: column;
+    gap: 20px;
+  }
+  .mm_footer_main .field__button{
+    position: relative;
+    width: 100%;
+     font-size: 16px;
+    font-weight: 700;
+  }
+  .mm_footer_main .field input{
+    border: 1px solid #c6c6c6;
+    border-radius: 2px;
+  }
+  .mm_footer_main .field::before,
+  .mm_footer_main .field::after{
+    display:none;
+  }
+
+  .mm_footer_main .mm_footer_list:last-child{
+    min-width:300px;
+  }
+
+  @media(max-width:1023px){
+    .mm_footer_inner {
+      flex-wrap:wrap;
+   }
+   
+    .mm_footer_lists{
+      width:100%;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+    @media(max-width:767px){
+    .mm_footer_list {
+     width: 150px;
+    }
+  }
+
+ #shopify-section-{{section.id}} .mm_footer_main{
+    padding:30px 0;
+    background: {{section.settings.bg_color}};
+  }
+  #shopify-section-{{section.id}} .mm_footer_main h4,
+  #shopify-section-{{section.id}} .mm_footer_main p,
+  #shopify-section-{{section.id}} .mm_footer_main li,
+  #shopify-section-{{section.id}} .mm_footer_main a{
+    color:{{section.settings.text_color}};
+  }
+
+  #shopify-section-{{section.id}} .mm_footer_main svg path{
+    fill:{{section.settings.text_color}};
+  }
+  #shopify-section-{{section.id}} .field__button{
+    background-color:{{section.settings.text_color}};
+    color:{{section.settings.bg_color}};
+  }
+</style>
+
+
+
+<div class="mm_footer_main">
+  <div class="container">
+    <div class="mm_footer_inner">
+       <div class="mm_footer_content">
+         {% if section.settings.logo != blank %}
+           <div class="mm_footer_logo">
+             {{ section.settings.logo | image_url:width:section.settings.logo.width | image_tag:loading:'lazy' }}
+           </div>
+         {% endif %}
+
+         {% if section.settings.text != blank %}
+           <div>{{ section.settings.text }}</div>
+         {% endif %}
+
+         <div class="mm_footer_socials">
+          
+           <a href="{{ section.settings.fb_link }}">
+             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33" fill="none">
+              <path d="M17.05 23.7599V16.9099H19.35L19.7 14.2599H17.05V12.5599C17.05 11.8099 17.25 11.2599 18.35 11.2599H19.75V8.85995C19.5 8.80995 18.65 8.75995 17.7 8.75995C15.65 8.75995 14.25 10.0099 14.25 12.2599V14.2599H12V16.9099H14.3V23.7599H17.05Z" fill="white"/>
+            </svg>
+           </a>
+
+           <a href="{{ section.settings.youtube_link }}">
+           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width:18px;"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+           </a>
+
+            <a href="{{ section.settings.insta_link }}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33" fill="none">
+              <path d="M23.455 13.1679C23.4185 12.3694 23.292 11.8244 23.1065 11.3474C22.915 10.8544 22.6585 10.4359 22.2415 10.0189C21.8245 9.60195 21.4065 9.34545 20.913 9.15395C20.436 8.96845 19.8905 8.84195 19.0925 8.80545C18.2925 8.76845 18.037 8.75995 16 8.75995C13.963 8.75995 13.7075 8.76845 12.908 8.80495C12.1095 8.84145 11.5645 8.96795 11.0875 9.15345C10.5945 9.34495 10.176 9.60145 9.759 10.0184C9.342 10.4354 9.0855 10.8534 8.894 11.3469C8.7085 11.8239 8.582 12.3694 8.5455 13.1674C8.5085 13.9674 8.5 14.2229 8.5 16.2599C8.5 18.2969 8.5085 18.5524 8.545 19.3519C8.5815 20.1504 8.708 20.6954 8.8935 21.1724C9.085 21.6654 9.3415 22.0839 9.7585 22.5009C10.1755 22.9179 10.5935 23.1744 11.087 23.3659C11.564 23.5514 12.1095 23.6779 12.9075 23.7144C13.7075 23.7514 13.963 23.7599 16 23.7599C18.037 23.7599 18.2925 23.7514 19.092 23.7149C19.8905 23.6784 20.4355 23.5519 20.9125 23.3664C21.4055 23.1749 21.824 22.9184 22.241 22.5014C22.658 22.0844 22.9145 21.6664 23.106 21.1729C23.2915 20.6959 23.418 20.1504 23.4545 19.3524C23.4915 18.5524 23.5 18.2969 23.5 16.2599C23.5 14.2229 23.4915 13.9674 23.455 13.1679ZM22.105 19.2904C22.0715 20.0214 21.9495 20.4189 21.847 20.6829C21.711 21.0329 21.5485 21.2829 21.286 21.5454C21.0235 21.8079 20.7735 21.9704 20.4235 22.1064C20.159 22.2089 19.762 22.3314 19.031 22.3644C18.2405 22.4004 18.003 22.4079 16.0005 22.4079C13.998 22.4079 13.7605 22.4004 12.97 22.3644C12.239 22.3309 11.8415 22.2089 11.5775 22.1064C11.2275 21.9704 10.9775 21.8079 10.715 21.5454C10.4525 21.2829 10.29 21.0329 10.154 20.6829C10.0515 20.4184 9.929 20.0214 9.896 19.2904C9.86 18.4994 9.8525 18.2624 9.8525 16.2599C9.8525 14.2574 9.86 14.0199 9.896 13.2294C9.9295 12.4984 10.0515 12.1009 10.154 11.8369C10.29 11.4869 10.4525 11.2369 10.715 10.9744C10.9775 10.7119 11.2275 10.5494 11.5775 10.4134C11.842 10.3109 12.239 10.1884 12.97 10.1554C13.761 10.1194 13.998 10.1119 16.0005 10.1119C18.003 10.1119 18.2405 10.1194 19.031 10.1554C19.762 10.1889 20.1595 10.3109 20.4235 10.4134C20.7735 10.5494 21.0235 10.7119 21.286 10.9744C21.5485 11.2369 21.711 11.4869 21.847 11.8369C21.9495 12.1014 22.072 12.4984 22.105 13.2294C22.141 14.0204 22.1485 14.2574 22.1485 16.2599C22.1485 18.2624 22.141 18.4999 22.105 19.2904ZM16 12.4084C13.873 12.4084 12.1485 14.1329 12.1485 16.2599C12.1485 18.3869 13.873 20.1114 16 20.1114C18.127 20.1114 19.8515 18.3869 19.8515 16.2599C19.8515 14.1329 18.127 12.4084 16 12.4084ZM16 18.7599C14.6195 18.7599 13.5 17.6404 13.5 16.2599C13.5 14.8794 14.6195 13.7599 16 13.7599C17.3805 13.7599 18.5 14.8794 18.5 16.2599C18.5 17.6404 17.3805 18.7599 16 18.7599ZM20.0035 11.3564C19.5065 11.3564 19.1035 11.7594 19.1035 12.2564C19.1035 12.7534 19.5065 13.1564 20.0035 13.1564C20.5005 13.1564 20.9035 12.7534 20.9035 12.2564C20.9035 11.7594 20.5005 11.3564 20.0035 11.3564Z" fill="white"/>
+            </svg>
+           </a>
+                
+         </div>
+         
+       </div>
+       <div class="mm_footer_lists">
+         {% for block in section.blocks  %}
+           {% case block.type %}
+           {% when 'menu' %}
+           <div class="mm_footer_list">
+             {% if block.settings.menu_heading != blank %}
+               <h4>{{ block.settings.menu_heading }}</h4>
+             {% endif %}
+             <ul>
+              {% for link in block.settings.menu.links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% endfor %}
+             </ul>
+           </div>
+         {% when 'contact' %}
+           <div class="mm_footer_list">
+             {% if block.settings.menu_heading != blank %}
+               <h4>{{ block.settings.menu_heading }}</h4>
+             {% endif %}
+             <ul>
+                <li><a href="tel:{{ block.settings.phone }}">{{ block.settings.phone }}</a></li>
+                <li><a href="mailto:{{ block.settings.email }}">{{ block.settings.email }}</a></li>
+                <li>{{ block.settings.address }}</li>
+             </ul>
+           </div>
+          {% when 'newsletter' %}
+           <div class="mm_footer_list">
+             {% if block.settings.heading != blank %}
+               <h4>{{ block.settings.heading }}</h4>
+             {% endif %}
+             {% if block.settings.text != blank %}
+               <p>{{ block.settings.text }}</p>
+             {% endif %}
+             {% form 'customer', class: 'newsletter-form' %}
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <div
+                class="newsletter-form__field-wrapper{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                {% if settings.animations_reveal_on_scroll %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+                <div class="field">
+                  <input
+                    id="NewsletterForm--{{ section.id }}"
+                    type="email"
+                    name="contact[email]"
+                    class="field__input"
+                    value="{{ form.email }}"
+                    aria-required="true"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    autocomplete="email"
+                    {% if form.errors %}
+                      autofocus
+                      aria-invalid="true"
+                      aria-describedby="Newsletter-error--{{ section.id }}"
+                    {% elsif form.posted_successfully? %}
+                      aria-describedby="Newsletter-success--{{ section.id }}"
+                    {% endif %}
+                    placeholder="{{ 'newsletter.label' | t }}"
+                    required
+                  >
+                  <label class="field__label" for="NewsletterForm--{{ section.id }}">
+                    {{ 'newsletter.label' | t }}
+                  </label>
+                  <button
+                    type="submit"
+                    class="newsletter-form__button field__button"
+                    name="commit"
+                    id="Subscribe"
+                    aria-label="{{ 'newsletter.button_label' | t }}"
+                  >
+                    Submit
+                  </button>
+                </div>
+                {%- if form.errors -%}
+                  <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
+                    {%- render 'icon-error' -%}
+                    {{- form.errors.translated_fields.email | capitalize }}
+                    {{ form.errors.messages.email -}}
+                  </small>
+                {%- endif -%}
+              </div>
+              {%- if form.posted_successfully? -%}
+                <h3
+                  class="newsletter-form__message newsletter-form__message--success form__message"
+                  id="Newsletter-success--{{ section.id }}"
+                  tabindex="-1"
+                  autofocus
+                >
+                  {% render 'icon-success' -%}
+                  {{- 'newsletter.success' | t }}
+                </h3>
+              {%- endif -%}
+            {% endform %}
+           </div>
+             {% endcase %}
+        {% endfor %} 
+       </div>
+    </div>
+                
+      {% if section.settings.copyright_text != blank %}
+         <p class="mm_footer_copyright">{{ section.settings.copyright_text }}</p>
+      {% endif %}
+      
+      {% if section.settings.bottom_text != blank %}
+        <div class="mm_footer_bottom_text">
+            <h4>{{ section.settings.bottom_headline }}</h4>
+             <p style="margin-top:20px;">{{ section.settings.bottom_text }}</p>
+        </div>
+      {% endif%}
+      
+  </div>
+                
+</div>
+
+
+
+
+{% schema %}
+  {
+    "name": "MM Footer",
+    "settings": [
+      {
+        "type":"color",
+        "id":"bg_color",
+        "label":"Background Color",
+        "default":"#181818"
+      },
+      {
+        "type":"color",
+        "id":"text_color",
+        "label":"Text Color",
+        "default":"#fff"
+      },
+      {
+        "type":"image_picker",
+        "id":"logo",
+        "label":"Logo"
+      },
+      {
+        "type":"richtext",
+        "id":"text",
+        "label":"Copy Right Text",
+        "default":"<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>"
+      },
+      {
+        "type":"text",
+        "id":"copyright_text",
+        "label":"Copy Right Text",
+        "default":"Copyright 2024 all rights reserved"
+      },
+      {
+        "type":"text",
+        "id":"bottom_headline",
+        "label":"Bottom Headline",
+        "default":"Headline"
+      },
+      {
+        "type":"text",
+        "id":"bottom_text",
+        "label":"Bottom Text",
+        "default":"Text"
+      },
+      {
+        "type":"header",
+        "content":"Socials"
+      },
+      {
+        "type":"url",
+        "id":"fb_link",
+        "label":"Facebook Link"
+      },
+      {
+        "type":"url",
+        "id":"youtube_link",
+        "label":"Twitter Link"
+      },
+      {
+        "type":"url",
+        "id":"insta_link",
+        "label":"Insta Link"
+      }
+    ],
+    "blocks":[
+      {
+        "type":"newsletter",
+        "name":"Newsletter",
+        "settings":[
+          {
+            "type":"text",
+            "id":"heading",
+            "label":"Heading",
+            "default":"Newsletter"
+          },
+          {
+            "type":"text",
+            "id":"text",
+            "label":"Text",
+            "default":"Newsletter"
+          }
+        ]
+      },
+      {
+        "name":"Menu",
+        "type":"menu",
+        "settings":[
+          {
+            "type":"text",
+            "id":"menu_heading",
+            "label":"Menu Heading",
+            "default":"Pages"
+          },
+          {
+            "type":"link_list",
+            "id":"menu",
+            "label":"Menu"
+          }
+        ]
+      },
+      {
+        "name":"Contact",
+        "type":"contact",
+        "settings":[
+          {
+            "type":"text",
+            "id":"menu_heading",
+            "label":"Menu Heading",
+            "default":"Pages"
+          },
+          {
+            "type":"text",
+            "id":"phone",
+            "label":"Phone No",
+            "default":"(406) 555 101"
+          },
+          {
+            "type":"text",
+            "id":"email",
+            "label":"Email",
+            "default":"Coding123@gmail.com"
+          },
+           {
+            "type":"text",
+            "id":"address",
+            "label":"Address",
+            "default":"12 Hilton St, Manchester M1 1JF"
+          }
+        ]
+      }
+    ],
+    "presets":[
+      {
+        "name":"MM Footer"
+      }
+    ]
+  }
+{% endschema %}

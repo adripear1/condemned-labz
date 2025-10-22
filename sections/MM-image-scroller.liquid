@@ -1,0 +1,402 @@
+<style>
+    @keyframes moveSlideshow {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-1400px);
+      }
+    }
+    .mark_image_main3 {
+      animation: moveSlideshowe 105s linear infinite;
+      display: flex;
+    }
+    @keyframes moveSlideshowe {
+      0% {
+        transform: translateX(-1400px);
+      }
+      100% {
+        transform: translateX(0); /* Same as the initial state */
+      }
+    }
+    .gear_marquee {
+      background: #141010;
+      position: relative;
+      overflow-x: hidden;
+    }
+    .mark_image_main2 {
+      animation: moveSlideshow 105s linear infinite;
+      display: flex;
+    }
+    
+    .mark_image_main3 {
+      animation: moveSlideshowe 110s linear infinite;
+      display: flex;
+    }
+    .mark_image_sub {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .mark_image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: flex;
+      padding: 0 0.5px;
+    }
+    .mark_image {
+      width: 276px;
+      height: 276px;
+    }
+    .signup_main {
+        position: absolute;
+        top: 65%;
+        left: 50%;
+        transform: translate(-50% , -74%);
+        width: calc(100% - 100px);
+    }
+    .signup_sub {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 735px;
+        background: #080000;
+        padding: 34px 25px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .signup_title h2 {
+      margin: 0 0 12px;
+      color: #fab20a;
+      text-align: center;
+      font-family: proxima-nova-cn;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 33px;
+      text-transform: uppercase;
+    }
+    .signup_button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width:100%;
+    }
+    
+    .signup_button a {
+      width:100%;
+      max-width:295px;
+      padding: 10px 15px;
+      background: #fab20a;
+      text-decoration: none;
+      color: #080000;
+      text-align: center;
+      font-family: 'Manrope', sans-serif; 
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 40px;
+      text-transform: uppercase;
+    }
+    @media screen and (max-width: 991px) {
+      .gear_marquee {
+        overflow-x: hidden;
+      }
+      .mark_image {
+        width: 190px;
+        height: 190px;
+      }
+      .signup_title h2 {
+          font-size: 26px;
+          line-height: 30px;
+      }
+      .signup_button a {
+          padding: 4px 15px;
+          font-size: 16px;
+      }
+    }
+    @media (max-width: 767px) {
+      .mark_image_main2 {
+        animation: moveSlideshow 160s linear infinite;
+      }
+      .mark_image_main3 {
+        animation: moveSlideshowe 160s linear infinite;
+      }
+      .signup_title h2 {
+        font-size: 20px;
+        line-height: 26px;
+      }
+    }
+</style>
+            
+    <div class="gear_marquee{% if section.settings.styling-class != blank %} {{ section.settings.styling-class }}{% endif %}">
+       <div class="mark_image_main mark_image_main2">
+          <div class="mark_image_sub">
+            {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'Marqueimages' %}
+              {% if block.settings.top %}
+            <div class="mark_image">
+               {{ block.settings.image_with_text_image | image_url: width: 1500 | image_tag }}
+             </div>
+            {% else %}
+                {% endif %}
+             {% endcase %}
+            {% endfor %}
+            
+           </div>
+            <div class="mark_image_sub">
+            {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'Marqueimages' %}
+              {% if block.settings.top %}
+            <div class="mark_image">
+               {{ block.settings.image_with_text_image | image_url: width: 1500 | image_tag }}
+             </div>
+            {% else %}
+                {% endif %}
+             {% endcase %}
+            {% endfor %}
+            
+           </div>
+            <div class="mark_image_sub">
+            {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'Marqueimages' %}
+              {% if block.settings.top %}
+            <div class="mark_image">
+               {{ block.settings.image_with_text_image | image_url: width: 1500 | image_tag }}
+             </div>
+            {% else %}
+                {% endif %}
+             {% endcase %}
+            {% endfor %}
+            
+           </div>
+          <div class="mark_image_sub">
+            {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'Marqueimages' %}
+              {% if block.settings.top %}
+            <div class="mark_image">
+               {{ block.settings.image_with_text_image | image_url: width: 1500 | image_tag }}
+             </div>
+            {% else %}
+                {% endif %}
+             {% endcase %}
+            {% endfor %}
+            
+           </div>
+          <div class="mark_image_sub">
+            {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'Marqueimages' %}
+              {% if block.settings.top %}
+            <div class="mark_image">
+               {{ block.settings.image_with_text_image | image_url: width: 1500 | image_tag }}
+             </div>
+            {% else %}
+                {% endif %}
+             {% endcase %}
+            {% endfor %}
+            
+           </div>
+         <div class="mark_image_sub">
+            {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'Marqueimages' %}
+              {% if block.settings.top %}
+            <div class="mark_image">
+               {{ block.settings.image_with_text_image | image_url: width: 1500 | image_tag }}
+             </div>
+            {% else %}
+                {% endif %}
+             {% endcase %}
+            {% endfor %}
+            
+           </div>
+         <div class="mark_image_sub">
+            {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'Marqueimages' %}
+              {% if block.settings.top %}
+            <div class="mark_image">
+               {{ block.settings.image_with_text_image | image_url: width: 1500 | image_tag }}
+             </div>
+            {% else %}
+                {% endif %}
+             {% endcase %}
+            {% endfor %}
+            
+           </div>
+       </div>
+       <div class="mark_image_main mark_image_main3">
+          <div class="mark_image_sub">
+            {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'Marqueimages' %}
+              {% if block.settings.bottom %}
+            <div class="mark_image">
+               {{ block.settings.image_with_text_image | image_url: width: 1500 | image_tag }}
+             </div>
+            {% else %}
+                {% endif %}
+             {% endcase %}
+            {% endfor %}
+           </div>
+         <div class="mark_image_sub">
+            {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'Marqueimages' %}
+              {% if block.settings.bottom %}
+            <div class="mark_image">
+               {{ block.settings.image_with_text_image | image_url: width: 1500 | image_tag }}
+             </div>
+            {% else %}
+                {% endif %}
+             {% endcase %}
+            {% endfor %}
+           </div>
+         <div class="mark_image_sub">
+            {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'Marqueimages' %}
+              {% if block.settings.bottom %}
+            <div class="mark_image">
+               {{ block.settings.image_with_text_image | image_url: width: 1500 | image_tag }}
+             </div>
+            {% else %}
+                {% endif %}
+             {% endcase %}
+            {% endfor %}
+           </div>
+         <div class="mark_image_sub">
+            {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'Marqueimages' %}
+              {% if block.settings.bottom %}
+            <div class="mark_image">
+               {{ block.settings.image_with_text_image | image_url: width: 1500 | image_tag }}
+             </div>
+            {% else %}
+                {% endif %}
+             {% endcase %}
+            {% endfor %}
+           </div>
+         <div class="mark_image_sub">
+            {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'Marqueimages' %}
+              {% if block.settings.bottom %}
+            <div class="mark_image">
+               {{ block.settings.image_with_text_image | image_url: width: 1500 | image_tag }}
+             </div>
+            {% else %}
+                {% endif %}
+             {% endcase %}
+            {% endfor %}
+           </div>
+         <div class="mark_image_sub">
+            {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'Marqueimages' %}
+              {% if block.settings.bottom %}
+            <div class="mark_image">
+               {{ block.settings.image_with_text_image | image_url: width: 1500 | image_tag }}
+             </div>
+            {% else %}
+                {% endif %}
+             {% endcase %}
+            {% endfor %}
+           </div>
+         <div class="mark_image_sub">
+            {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'Marqueimages' %}
+              {% if block.settings.bottom %}
+            <div class="mark_image">
+               {{ block.settings.image_with_text_image | image_url: width: 1500 | image_tag }}
+             </div>
+            {% else %}
+                {% endif %}
+             {% endcase %}
+            {% endfor %}
+           </div>
+       </div>
+       {% if section.settings.signup_title != blank %}
+        <div class="signup_main">
+          <div class="signup_sub">
+            <div class="signup_title">
+              <h2>{{ section.settings.signup_title }}</h2>
+            </div>
+            <div class="signup_button">
+              <a href="{{ section.settings.butn_url }}">{{ section.settings.butn_text }}</a>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      </div>
+
+{% schema %}
+  {
+    "name": "MM Image Scroller",
+    "settings": [
+      {
+        "type":"text",
+        "label":"Styling Class",
+        "id":"styling-class"
+      },
+       {
+  "type": "image_picker",
+  "id": "reviews",
+  "label": "Reviews Image"
+},
+      {
+            "type": "text",
+            "id": "signup_title",
+            "label": "Sign Up Title"
+          },
+      {
+            "type": "text",
+            "id": "butn_text",
+            "label": "Sign Up Button Text"
+          },
+      {
+            "type": "url",
+            "id": "butn_url",
+            "label": "Sign Up Button URL"
+          }
+    ],  
+    
+  "blocks": [
+     {
+       "name": "Marque Images",
+       "type": "Marqueimages",
+       "settings": [
+         {
+            "type": "checkbox",
+            "id": "top",
+            "label": "Add Image To Top Marque",
+            "default": true
+          },
+         {
+            "type": "checkbox",
+            "id": "bottom",
+            "label": "Add Image To Bottom Marque",
+            "default": false
+          },
+         {
+           "type": "image_picker",
+           "id": "image_with_text_image",
+           "label": "Image"
+         }
+       ]
+     }
+  ],
+  "presets": [
+    {
+      "name": "MM Image Scroller"
+    }
+  ]
+  }
+{% endschema %}

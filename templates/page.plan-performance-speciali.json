@@ -1,0 +1,35 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "mm_custom_html_6YGiJX": {
+      "type": "MM-custom-html",
+      "custom_css": [],
+      "name": "MM Custom HTML",
+      "settings": {
+        "custom_html": "<div style=\"max-width: 500px; margin: 0 auto;\">\n  <div class=\"klaviyo-form-QZhnBM\"></div>\n</div>",
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "mm_custom_html_6YGiJX"
+  ]
+}

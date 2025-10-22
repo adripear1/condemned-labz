@@ -1,0 +1,111 @@
+{% if product.metafields.custom.upsell_products.value %}
+    <div class="page-width rts_upsell">
+    <div class="rts_upsell--main">
+      <h2>{{ section.settings.mm-heading }}</h2>
+      <div class="rts_upsell--inner">
+       
+        {% for prod in product.metafields.custom.upsell_products.value %}
+        <div class="rts_upsell--product">
+          <span class="upsell_image">
+           <img src="{{ prod.upsell_product.value.featured_image | img_url: 'master' }}"> 
+          </span>
+          <span class="upsell_detail">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="84" height="29" viewBox="0 0 84 29" fill="none">
+              <g clip-path="url(#clip0_0_3488)">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.22282 16.3009L3.20181 19.4531L4.64816 13.7038L0.0986328 9.90262L6.01359 9.50153L8.22282 4L10.4321 9.50153L16.347 9.90262L11.7975 13.7038L13.2438 19.4531L8.22282 16.3009Z" fill="#070000"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M27.1359 16.3009L22.1149 19.4531L23.5612 13.7038L19.0117 9.90262L24.9267 9.50153L27.1359 4L29.3452 9.50153L35.2601 9.90262L30.7106 13.7038L32.157 19.4531L27.1359 16.3009Z" fill="#070000"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M46.0491 16.3009L41.0281 19.4531L42.4744 13.7038L37.9248 9.90262L43.8397 9.50153L46.0491 4L48.2582 9.50153L54.1731 9.90262L49.6237 13.7038L51.0701 19.4531L46.0491 16.3009Z" fill="#070000"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M64.9624 16.3009L59.9412 19.4531L61.3875 13.7038L56.8379 9.90262L62.7529 9.50153L64.9624 4L67.1714 9.50153L73.0864 9.90262L68.5366 13.7038L69.9834 19.4531L64.9624 16.3009Z" fill="#070000"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M83.8752 16.3009L78.8542 19.4531L80.3005 13.7038L75.751 9.90262L81.6658 9.50153L83.8752 4L86.0842 9.50153L91.9993 9.90262L87.4497 13.7038L88.8962 19.4531L83.8752 16.3009Z" fill="#070000"/>
+              </g>
+            </svg>
+            </span>
+            <h3>{{ prod.upsell_product.value.title }}</h3>
+             <p class="upsell-description">{{ prod.product_description }}</p>
+            {% if prod.upsell_product.value.variants.size > 1 %}
+            <div class="upsell--variant__selector">
+              <span style="color:#000;" class="pdp_flav">Flavor</span>
+              <select id="addon--product__selector">
+                {% for variant in prod.upsell_product.value.variants %}
+                 
+                  <option  {% unless variant.available %}disabled="true"{% endunless %}  value="{{ variant.id }}">{{ variant.title }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            {% endif %}
+            <span class="upsell_save upsell_save-desk">
+              save ${{ prod.discount }}
+            </span>
+          </span>
+          <span class="upsell_check">
+            <div class="upsell--check__div">
+             <span class="add__bundle">Add to Bundle</span>
+            <label class="up_check">
+            {% assign minus = prod.discount | times:100 %}
+            <input type="checkbox" 
+              data-save="{{ prod.upsell_product.value.price | minus: minus | money | remove:'$' }}" 
+              data-compare="{{ prod.upsell_product.value.price | money | remove:'$' }}" 
+              value="{{ prod.upsell_product.value.selected_or_first_available_variant.id }}" 
+              class="bundler-checkbox">
+            <span class="checkmark"></span>
+          </label>
+              </div>
+             <span class="upsell_price">
+              <p>{{ prod.upsell_product.value.price | money }}</p>
+              <!-- <p> {{ prod.upsell_product.value.compare_at_price | money }}</p> -->
+               <span class="prod_after-discount">{{ prod.upsell_product.value.price | minus: minus | money  }}</span>
+                <span class="upsell_save upsell_save-mobile">
+              save ${{ prod.discount }}
+            </span>
+            </span>
+          </span>
+        </div>
+          {% endfor %}
+       
+      </div>
+      {% assign save = product.selected_or_first_available_variant.price | money %}
+      {% assign compare = product.selected_or_first_available_variant.compare_at_price | money %}
+      
+      <button disabled="disabled" class="upsell_btn">Add to cart - 
+       <span class="save" data-save="{{ save | remove:'$' }}">{{ save }}</span>
+       <span class="compare" data-compare="{% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price  %}{{ compare | remove:'$' }}{% else %}{{ save | remove:'$' }}{% endif %}"></span>
+      </button>
+    </div>
+   </div>
+    {% endif %}
+
+    <script src="{{ 'mm-main-product.js' | asset_url }}" defer="defer"></script>
+
+    {% schema %}
+  {
+    "name": "MM Addons",
+  
+    "settings": [
+      {
+        "type":"text",
+        "id":"mm-heading",
+        "label":"Heading",
+        "default": "Accelerate your results"
+      },
+    ],
+    "blocks":[
+       {
+        "name":"product",
+        "type":"Product",
+        "settings":[
+            {
+                "type":"product",
+                "id":"mm-product",
+                "label":"Prodcut"
+            }
+        ]
+      }
+    ],
+  "presets": [
+    {
+      "name": "MM Addons"
+    }
+  ]
+  }
+{% endschema %}

@@ -1,0 +1,153 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_qG8pYb": {
+      "type": "image-banner",
+      "disabled": true,
+      "settings": {
+        "section_custom_class": "",
+        "image": "shopify://shop_images/mdw-2025-collection-page.jpg",
+        "banner_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "allow__video": false,
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "mob__video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "rich_text_gtp4RK": {
+      "type": "rich-text",
+      "blocks": {
+        "text_8MMAdU": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p><strong>4TH OF JULY SALE:<br/>SAVE 25% OFF SITEWIDE<br/>(no code needed)</strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_8MMAdU"
+      ],
+      "settings": {
+        "text_cs_class": "",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": true,
+        "color_scheme": "background-1"
+      }
+    },
+    "0a7e08b4-b81c-45c9-8d1d-51c68588e2cd": {
+      "type": "MM-scrolling-text",
+      "blocks": {
+        "33569c28-a912-4857-9137-6d40dd62ad60": {
+          "type": "Scrolling_Text",
+          "settings": {
+            "text": "FREE SHIPPING ALL ORDERS OVER $99 • 30-DAY MONEY BACK GUARANTEE"
+          }
+        }
+      },
+      "block_order": [
+        "33569c28-a912-4857-9137-6d40dd62ad60"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".scrolling_div_content p {font-size: 40px;}",
+        "@media screen and (max-width: 767px) {.scrolling_div_content p {font-size: 22px; }}"
+      ],
+      "settings": {
+        "show_svg": false,
+        "bg_color": "#ffffff",
+        "border_color": "#ffffff",
+        "text_color": "#080000",
+        "padding_top_desktop": 25,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 12,
+        "columns_desktop": 3,
+        "color_scheme": "background-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": false,
+        "columns_mobile": "2",
+        "padding_top": 20,
+        "padding_bottom": 36
+      }
+    },
+    "e1df9140-7ea5-48b5-a17f-fc94251d455f": {
+      "type": "rich-text",
+      "blocks": {
+        "template--14703434661970__e1df9140-7ea5-48b5-a17f-fc94251d455f-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "PROMO OFFER OR SUBSCRIBE CALLOUT",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "template--14703434661970__e1df9140-7ea5-48b5-a17f-fc94251d455f-heading-1"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "text_cs_class": "home_text_banner",
+        "bg_img_desktop": "shopify://shop_images/image.png",
+        "bg_img_mobile": "shopify://shop_images/Group_6502_c0914c65-1f26-4d1c-b172-99985f752764.png",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    }
+  },
+  "order": [
+    "image_banner_qG8pYb",
+    "rich_text_gtp4RK",
+    "banner",
+    "0a7e08b4-b81c-45c9-8d1d-51c68588e2cd",
+    "product-grid",
+    "e1df9140-7ea5-48b5-a17f-fc94251d455f"
+  ]
+}

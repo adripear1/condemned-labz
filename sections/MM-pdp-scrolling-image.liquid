@@ -1,0 +1,240 @@
+<style>
+  .custom_scrolling_pdp .custom_scrolling_main{
+    overflow:hidden;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .custom_scrolling_pdp .scrolling_div_image {
+    max-width: 250px;
+    height:250px;
+  }
+  .custom_scrolling_pdp .pdp_scrolling-text h3{
+    margin: 0;
+    font-family: Mark Pro;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 25px;
+    text-transform: uppercase;
+  }
+  .custom_scrolling_pdp .scrolling_div_image img {
+    width: 100%;
+    object-fit: cover;
+        height: 100%;
+    display: block;
+  }
+  .custom_scrolling_pdp .scrolling_div_content {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  .custom_scrolling_pdp .scrolling_div_content p {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    margin: 0;
+    color: #080000;
+    font-size: 77px;
+    font-family: 'proxima-nova-cn';
+    line-height: 60px;
+    font-weight: 700;
+    letter-spacing: 3.388px;
+  }
+  .product_app-review2{
+    display: inline-block;
+    margin-top:10px;
+    position: relative;
+}
+.product_app-review2 .yotpo .yotpo-bottomline .yotpo-icon-star, .product_app-review2 .yotpo .yotpo-bottomline .yotpo-icon-half-star, 
+.product_app-review2 .yotpo .yotpo-bottomline .yotpo-icon-empty-star{
+      color: #070000 !important;
+}
+.product_app-review2 .text-m{
+  color: #070000 !important;
+  font-family: 'Mark Pro' !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  line-height: 18px !important;
+}
+.product_app-review2::after{
+  content:'';
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+}
+  .pdp_scrolling-text{
+    color: #080000;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .custom_scrolling_pdp .custom_scrolling_text{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+   animation: translateFull 40s linear infinite;
+  }
+  
+  @keyframes translateFull {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% * 1));
+  }
+}
+
+
+  @media(max-width:767px){
+    .scrolling_div_content p {
+      font-size: 44px;
+      line-height: 44px;
+    }
+    .custom_scrolling_main{
+      padding-bottom: 20px;
+    }
+  }
+
+#custom_scrolling_main-{{ section.id }} {
+  padding-top: {{section.settings.padding_top_desktop}}px;
+  padding-bottom:{{section.settings.padding_bottom_desktop}}px;
+}
+#custom_scrolling_main-{{ section.id }} {
+    background: {{section.settings.bg_color}};
+}
+
+#custom_scrolling_main-{{ section.id }} p{
+    color:{{section.settings.text_color}};
+}
+  @media (max-width:767px){
+      #custom_scrolling_main-{{ section.id }} {
+        padding-top: {{section.settings.padding_top_mobile}}px;
+        padding-bottom:{{section.settings.padding_bottom_mobile}}px;
+      }
+  }
+
+</style>
+            
+{% if product.metafields.custom.review_images != blank %}
+  <div class="custom_scrolling_pdp" id="custom_scrolling_main-{{ section.id }}">
+    <div class="pdp_scrolling-text" style="color:{{ section.settings.text_color }}">
+      {% if section.settings.heading != blank %}
+        <h3 style="color:{{ section.settings.text_color }}">{{ section.settings.heading }}</h3>
+        <a href="#review_all" class="product_app-review2">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when '@app' -%}
+                {% render block %}
+            {%- endcase -%}
+          {%- endfor -%}
+        </a>
+      {% endif %}
+    </div>
+    <div class="custom_scrolling_main" id="custom_scrolling_main-{{ section.id }}">
+      {% for i in (1..4) %}
+        <div class="custom_scrolling_text">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'Scrolling_Image' %}
+                <div class="scrolling_div_image">
+                  {% if block.settings.image != blank %}
+                    <img src="{{ block.settings.image | img_url: 'master' }}">
+                  {% endif %}
+                </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+
+
+{% schema %}
+  {
+    "name": "MM pdp scrolling image",
+  
+    "settings": [
+      {
+        "type":"text",
+        "id":"heading",
+        "label":"Heading"
+      },
+      {
+        "type":"color",
+        "id":"bg_color",
+        "label":"Background Color",
+        "default":"#fff"
+      },
+       
+      {
+        "type":"color",
+        "id":"text_color",
+        "label":"Text Color",
+        "default":"#2E4368"
+      }
+      ,{
+        "type": "range",
+        "id": "padding_top_desktop",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 0
+      },{
+        "type": "range",
+        "id": "padding_bottom_desktop",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 0
+      },{
+       "type": "range",
+        "id": "padding_top_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Top Mobile",
+        "default": 0
+      },{
+       "type": "range",
+        "id": "padding_bottom_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Bottom Mobile",
+        "default": 0
+      }
+    ],
+    "blocks":[
+      {
+        "type": "@app"
+      },
+       {
+        "name":"Scrolling Image",
+        "type":"Scrolling_Image",
+        "settings":[
+          {
+            "type":"image_picker",
+            "id":"image",
+            "label":"Image"
+          }
+        ]
+      }
+    ],
+  "presets": [
+    {
+      "name": "MM pdp scrolling image"
+    }
+  ]
+  }
+{% endschema %}

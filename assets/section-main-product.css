@@ -2200,6 +2200,15 @@ a.product__text {
   font-weight: 500;
 }
 
+/* Hide any remaining Sezzle content */
+.sezzle-button-text,
+.sezzle-left,
+.szl-light,
+[class*="sezzle"],
+[class*="szl-"] {
+  display: none !important;
+}
+
 
 
 

@@ -130,10 +130,12 @@
                 {%- endform -%}
               
               </div>
-            {%- when 'custom_payment_text' -%}
+          {%- when 'custom_payment_text' -%}
+            {%- if block.settings.show_custom_payment -%}
               <div class="custom-payment-text" {{ block.shopify_attributes }}>
                 or 4 payments of ${{ product.selected_or_first_available_variant.price | divided_by: 4 | money_without_currency }} USD at checkout
               </div>
+            {%- endif -%}
             {%- when 'inventory' -%}
               <p
                 class="product__inventory no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
@@ -764,6 +766,12 @@
         {
           "type": "paragraph",
           "content": "Displays 'or 4 payments of $[price] USD at checkout' based on product price"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_custom_payment",
+          "label": "Show Custom Payment Text",
+          "default": true
         }
       ]
     },

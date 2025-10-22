@@ -130,7 +130,7 @@
         "684c9ce1-986b-4ccc-9d27-ce05eee4cddb": {
           "type": "collapsible_tab",
           "settings": {
-            "check_show": true,
+            "check_show": false,
             "heading": "Product Details",
             "icon": "none",
             "content": "<p>{{ product.metafields.custom.product_short_details | metafield_tag }}</p>",
@@ -158,6 +158,19 @@
             "page": ""
           }
         },
+        "complementary_EqbNiB": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Pairs well with",
+            "make_collapsible_row": true,
+            "icon": "price_tag",
+            "product_list_limit": 10,
+            "products_per_page": 2,
+            "pagination_style": "counter",
+            "image_ratio": "square",
+            "enable_quick_add": false
+          }
+        },
         "6f6f637f-57c1-48e1-b55f-9528e4957aa8": {
           "type": "image",
           "settings": {
@@ -182,6 +195,7 @@
         "684c9ce1-986b-4ccc-9d27-ce05eee4cddb",
         "1b1c50c2-c501-4a78-8b6c-c16c7e9c7ce1",
         "f4dacc71-15fb-4643-8742-c24d206b5cd5",
+        "complementary_EqbNiB",
         "6f6f637f-57c1-48e1-b55f-9528e4957aa8"
       ],
       "custom_css": [

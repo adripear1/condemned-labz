@@ -2192,6 +2192,14 @@ a.product__text {
  
 }
 
+/* Custom Payment Text Styling */
+.custom-payment-text {
+  font-size: 1.4rem;
+  color: rgb(var(--color-foreground));
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
 
 
 

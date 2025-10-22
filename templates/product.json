@@ -90,13 +90,12 @@
             "product": "{{product}}"
           }
         },
-        "sezzle_widget_widget_block_C7pUqg": {
-          "type": "shopify://apps/sezzle-widget/blocks/widget-block/f3a53793-e118-4764-a86b-a79bfedb0d5f",
-          "disabled": true,
+        "custom_payment_text": {
+          "type": "text",
           "settings": {
-            "heading": "Sezzle Widget",
-            "font_size": 14,
-            "font_family": "inherit"
+            "text": "or 4 payments of ${{ product.selected_or_first_available_variant.price | divided_by: 4 | money_without_currency }} USD at checkout",
+            "text_style": "body",
+            "mm-styling-class": "custom-payment-text"
           }
         },
         "variant_picker": {
@@ -186,7 +185,7 @@
         "price",
         "affirm_pay_over_time_messaging_product_block_nJFDJx",
         "afterpay_on_site_messaging_payments_messaging_FMYjFY",
-        "sezzle_widget_widget_block_C7pUqg",
+        "custom_payment_text",
         "variant_picker",
         "recharge_subscriptions_subscription_widget_7fRa8Y",
         "quantity_selector",

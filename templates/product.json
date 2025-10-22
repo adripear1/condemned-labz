@@ -141,7 +141,7 @@
         "684c9ce1-986b-4ccc-9d27-ce05eee4cddb": {
           "type": "collapsible_tab",
           "settings": {
-            "check_show": false,
+            "check_show": true,
             "heading": "Product Details",
             "icon": "none",
             "content": "<p>{{ product.metafields.custom.product_short_details | metafield_tag }}</p>",

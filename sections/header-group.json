@@ -1,1 +1,73 @@
-{"name":"t:sections.header.name","type":"header","sections":{"announcement-bar":{"type":"announcement-bar","blocks":{"announcement_Yb6QqT":{"type":"announcement","settings":{"text":"Lasidex Out Now! Performance Carbohydrate, Formerly C-Block Back In Stock!","link":""}},"announcement_hgyzW7":{"type":"announcement","settings":{"text":"NEW! Split Payments With Sezzle, Affirm Or Afterpay","link":""}},"announcement-bar-0":{"type":"announcement","settings":{"text":"New Subscribe & Save Option!","link":""}},"announcement_kMmDgz":{"type":"announcement","settings":{"text":"Arsynist Burn Out Now! + 60 Day Money Back Guarantee","link":""}}},"block_order":["announcement_Yb6QqT","announcement_hgyzW7","announcement-bar-0","announcement_kMmDgz"],"settings":{"color_scheme":"scheme-0826cf51-b300-4c87-8690-87d571018ec4","show_line_separator":true,"show_social":true,"auto_rotate":true,"change_slides_speed":5,"enable_country_selector":false,"enable_language_selector":false}},"header":{"type":"header","custom_css":[".header-wrapper {padding-top: 0px !important; padding-bottom: 0px !important;}","@media (min-width: 750px) {a.header__heading-link.link.link--text.focus-inset {margin-bottom: -31px; }}"],"settings":{"logo_position":"top-center","menu":"updated-menu","menu_type_desktop":"mega","sticky_header_type":"none","show_line_separator":true,"color_scheme":"accent-1","menu_color_scheme":"accent-1","enable_country_selector":true,"enable_language_selector":true,"mobile_logo_position":"center","margin_bottom":0,"padding_top":0,"padding_bottom":0}}},"order":["announcement-bar","header"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_Yb6QqT": {
+          "type": "announcement",
+          "settings": {
+            "text": "Lasidex Out Now! Performance Carbohydrate, Formerly C-Block Back In Stock!",
+            "link": ""
+          }
+        },
+        "announcement_kMmDgz": {
+          "type": "announcement",
+          "settings": {
+            "text": "Arsynist Burn Out Now! + 60 Day Money Back Guarantee",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_Yb6QqT",
+        "announcement_kMmDgz"
+      ],
+      "settings": {
+        "color_scheme": "scheme-0826cf51-b300-4c87-8690-87d571018ec4",
+        "show_line_separator": true,
+        "show_social": true,
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "custom_css": [
+        ".header-wrapper {padding-top: 0px !important; padding-bottom: 0px !important;}",
+        "@media (min-width: 750px) {a.header__heading-link.link.link--text.focus-inset {margin-bottom: -31px; }}"
+      ],
+      "settings": {
+        "logo_position": "top-center",
+        "menu": "updated-menu",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "none",
+        "show_line_separator": true,
+        "color_scheme": "accent-1",
+        "menu_color_scheme": "accent-1",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}

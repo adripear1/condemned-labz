@@ -130,6 +130,10 @@
                 {%- endform -%}
               
               </div>
+            {%- when 'custom_payment_text' -%}
+              <div class="custom-payment-text" {{ block.shopify_attributes }}>
+                or 4 payments of ${{ product.selected_or_first_available_variant.price | divided_by: 4 | money_without_currency }} USD at checkout
+              </div>
             {%- when 'inventory' -%}
               <p
                 class="product__inventory no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
@@ -749,6 +753,17 @@
           "type":"text",
           "label":"Styling Class",
           "id":"mm-styling-class"
+        }
+      ]
+    },
+    {
+      "type": "custom_payment_text",
+      "name": "Custom Payment Text",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Displays 'or 4 payments of $[price] USD at checkout' based on product price"
         }
       ]
     },

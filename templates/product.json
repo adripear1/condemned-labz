@@ -51,6 +51,12 @@
           "type": "price",
           "settings": {}
         },
+        "custom_payment_text_cwNbep": {
+          "type": "custom_payment_text",
+          "settings": {
+            "show_custom_payment": true
+          }
+        },
         "affirm_pay_over_time_messaging_product_block_nJFDJx": {
           "type": "shopify://apps/affirm-pay-over-time-messaging/blocks/product-block/6dce54be-130d-4d13-9636-1e8f611b3071",
           "disabled": true,
@@ -90,12 +96,13 @@
             "product": "{{product}}"
           }
         },
-        "custom_payment_text": {
-          "type": "text",
+        "sezzle_widget_widget_block_C7pUqg": {
+          "type": "shopify://apps/sezzle-widget/blocks/widget-block/f3a53793-e118-4764-a86b-a79bfedb0d5f",
+          "disabled": true,
           "settings": {
-            "text": "or 4 payments of ${{ product.selected_or_first_available_variant.price | divided_by: 4 | money_without_currency }} USD at checkout",
-            "text_style": "body",
-            "mm-styling-class": "custom-payment-text"
+            "heading": "Sezzle Widget",
+            "font_size": 14,
+            "font_family": "inherit"
           }
         },
         "variant_picker": {
@@ -183,9 +190,10 @@
         "3dfd86e0-bc00-4f30-a5d4-5d048f02fe9e",
         "40420014-7dae-4fef-9d81-75c911197b01",
         "price",
+        "custom_payment_text_cwNbep",
         "affirm_pay_over_time_messaging_product_block_nJFDJx",
         "afterpay_on_site_messaging_payments_messaging_FMYjFY",
-        "custom_payment_text",
+        "sezzle_widget_widget_block_C7pUqg",
         "variant_picker",
         "recharge_subscriptions_subscription_widget_7fRa8Y",
         "quantity_selector",

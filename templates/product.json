@@ -163,9 +163,9 @@
         }
       },
       "block_order": [
-        "3dfd86e0-bc00-4f30-a5d4-5d048f02fe9e",
         "vendor",
         "title",
+        "3dfd86e0-bc00-4f30-a5d4-5d048f02fe9e",
         "40420014-7dae-4fef-9d81-75c911197b01",
         "price",
         "affirm_pay_over_time_messaging_product_block_nJFDJx",

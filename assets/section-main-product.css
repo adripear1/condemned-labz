@@ -1,4 +1,3 @@
-.product__info-wrapper .yotpo-widget-instance,
 .product__info-wrapper .shopify-app-block.recharge-subscription-widget,
 .quick-add-modal .product_app-review,
 .quick-add-modal .rts_upsell,
@@ -1918,13 +1917,11 @@ a.product__text {
    position: relative; 
 }
 .product_app-review{
-  position: absolute;
-  top: 0;
+  display: inline-block;
   background: #FAB20A;
   border: 1px solid #080000;
-  z-index: 2;
   padding: 8px 25px;
-  display: inline-block;
+  margin: 10px 0;
 }
 .product_app-review .yotpo .yotpo-bottomline .yotpo-icon-star, .product_app-review .yotpo .yotpo-bottomline .yotpo-icon-half-star, 
 .product_app-review .yotpo .yotpo-bottomline .yotpo-icon-empty-star{

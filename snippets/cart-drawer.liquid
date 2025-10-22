@@ -447,6 +447,14 @@
           <div id="CartDrawer-CartErrors" role="alert"></div>
         </form>
       </cart-drawer-items>
+      
+      <!-- Corner COWI Related Items Carousel -->
+      <div class="cart-drawer__related-items">
+        <div id="corner-cowi-related-items" class="corner-cowi-related-items">
+          <!-- Corner COWI Related Items Widget will be injected here -->
+        </div>
+      </div>
+      
       <div class="drawer__footer">
         {%- if settings.show_cart_note -%}
           <details id="Details-CartDrawer">
@@ -550,4 +558,56 @@
       document.querySelector('#cart').submit();
     });
   });
+
+  // Initialize Corner COWI Related Items Carousel
+  function initializeCornerCOWICarousel() {
+    const carouselContainer = document.querySelector('#corner-cowi-related-items');
+    if (!carouselContainer) return;
+
+    // Hide any existing acb--wrapper
+    const acbWrapper = document.querySelector('.acb--wrapper');
+    if (acbWrapper) {
+      acbWrapper.style.display = 'none';
+    }
+
+    // Initialize Corner COWI Related Items Widget
+    if (typeof window.CornerCOWI !== 'undefined') {
+      window.CornerCOWI.initRelatedItems({
+        container: '#corner-cowi-related-items',
+        cartDrawer: true,
+        alwaysVisible: true
+      });
+    } else {
+      // Fallback: Create a placeholder carousel if Corner COWI is not available
+      carouselContainer.innerHTML = `
+        <h3>You May Also Like</h3>
+        <div class="carousel-container">
+          <div class="product-card">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDE1MCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNTAiIGhlaWdodD0iMTIwIiBmaWxsPSIjRjVGNUY1Ii8+CjxwYXRoIGQ9Ik02MCA1MEg5MFY3MEg2MFY1MFoiIGZpbGw9IiNDQ0NDQ0MiLz4KPC9zdmc+" alt="Product placeholder">
+            <h4>Related Product</h4>
+            <div class="price">$29.99</div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+          <div class="product-card">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDE1MCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNTAiIGhlaWdodD0iMTIwIiBmaWxsPSIjRjVGNUY1Ii8+CjxwYXRoIGQ9Ik02MCA1MEg5MFY3MEg2MFY1MFoiIGZpbGw9IiNDQ0NDQ0MiLz4KPC9zdmc+" alt="Product placeholder">
+            <h4>Related Product</h4>
+            <div class="price">$39.99</div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+          <div class="product-card">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDE1MCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNTAiIGhlaWdodD0iMTIwIiBmaWxsPSIjRjVGNUY1Ii8+CjxwYXRoIGQ9Ik02MCA1MEg5MFY3MEg2MFY1MFoiIGZpbGw9IiNDQ0NDQ0MiLz4KPC9zdmc+" alt="Product placeholder">
+            <h4>Related Product</h4>
+            <div class="price">$49.99</div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  // Initialize when cart drawer opens
+  document.addEventListener('cart:opened', initializeCornerCOWICarousel);
+  
+  // Also initialize on DOM ready
+  document.addEventListener('DOMContentLoaded', initializeCornerCOWICarousel);
 </script>

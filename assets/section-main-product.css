@@ -2253,16 +2253,20 @@ a.product__text {
   display: flex !important;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #FAB20A !important;
   border: none !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   transition: all 0.2s ease;
+  font-size: 0 !important; /* Hide text content */
+  position: relative;
+  color: transparent; /* Hide text color */
 }
 
 .upsell-products--quick-add .quick-add__submit:hover {
-  background-color: rgba(255, 255, 255, 1);
+  background-color: #FAB20A !important;
   transform: scale(1.1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0.9;
 }
 
 .upsell-products--quick-add .quick-add__submit:disabled {
@@ -2272,47 +2276,45 @@ a.product__text {
 }
 
 /* Hide price text, "choose options" text, and sold out message text in button */
-.upsell-products--quick-add .quick-add__submit {
-  font-size: 0 !important; /* Hide text content */
-  position: relative;
-  color: transparent; /* Hide text color */
-}
-
 .upsell-products--quick-add .quick-add__submit > span:not(.icon-wrap):not(.loading__spinner) {
   display: none !important;
 }
 
-/* Hide arrow icon for multi-variant products */
+/* Show arrow icon for multi-variant products */
 .upsell-products--quick-add .quick-add__submit .icon-arrow {
-  display: none !important;
+  display: block !important;
+  width: 2rem;
+  height: 2rem;
+  color: #13284F;
 }
 
-/* Hide existing SVG icons */
-.upsell-products--quick-add .quick-add__submit svg {
-  display: none !important;
+/* Show plus icon for single variant products */
+.upsell-products--quick-add .quick-add__submit .icon-plus {
+  display: block !important;
+  width: 2rem;
+  height: 2rem;
+  color: #13284F;
 }
 
-/* Show plus icon for all quick add buttons using ::after */
-.upsell-products--quick-add .quick-add__submit::after {
-  content: '+';
-  font-size: 2rem;
-  line-height: 1;
-  display: flex;
+/* Show icon-wrap for both arrow and plus icons */
+.upsell-products--quick-add .quick-add__submit .icon-wrap {
+  display: flex !important;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
+  margin: 0;
   position: absolute;
   top: 0;
   left: 0;
-  font-weight: 300;
-  color: rgb(var(--color-foreground));
-  pointer-events: none;
 }
 
-/* Ensure icon-wrap doesn't interfere */
-.upsell-products--quick-add .quick-add__submit .icon-wrap {
-  display: none !important;
+/* Ensure icons inside icon-wrap are visible */
+.upsell-products--quick-add .quick-add__submit .icon-wrap svg {
+  display: block !important;
+  width: 2rem;
+  height: 2rem;
+  color: #13284F;
 }
 
 /* Hide loading spinner initially */

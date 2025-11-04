@@ -2336,7 +2336,38 @@ a.product__text {
 
 @media screen and (max-width: 749px) {
   .upsell-products__grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
     gap: 1.5rem;
+    padding-bottom: 1rem;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .upsell-products__grid::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  .upsell-products__grid::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .upsell-products__grid::-webkit-scrollbar-thumb {
+    background: rgba(var(--color-foreground), 0.2);
+    border-radius: 2px;
+  }
+  
+  .upsell-products__item {
+    flex: 0 0 auto;
+    min-width: calc(50vw - 2rem);
+    max-width: calc(50vw - 2rem);
+    scroll-snap-align: start;
   }
   
   .upsell-products__heading {
@@ -2354,7 +2385,8 @@ a.product__text {
     min-width: 3.5rem;
   }
   
-  .upsell-products--quick-add .quick-add__submit .icon-plus {
+  .upsell-products--quick-add .quick-add__submit .icon-plus,
+  .upsell-products--quick-add .quick-add__submit .icon-arrow {
     width: 1.75rem;
     height: 1.75rem;
   }

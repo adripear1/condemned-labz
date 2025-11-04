@@ -126,6 +126,19 @@
             "show_gift_card_recipient": true
           }
         },
+        "upsell_DNRXjr": {
+          "type": "upsell",
+          "settings": {
+            "heading": "Complete the stack",
+            "product_1": "arsynist-pm",
+            "product_2": "convict-stim",
+            "product_3": "dna-dispatch",
+            "product_4": "",
+            "product_5": "",
+            "product_6": "",
+            "image_ratio": "square"
+          }
+        },
         "description": {
           "type": "description",
           "disabled": true,
@@ -196,6 +209,7 @@
         "recharge_subscriptions_subscription_widget_v2_Qaq3mJ",
         "quantity_selector",
         "buy_buttons",
+        "upsell_DNRXjr",
         "description",
         "684c9ce1-986b-4ccc-9d27-ce05eee4cddb",
         "1b1c50c2-c501-4a78-8b6c-c16c7e9c7ce1",

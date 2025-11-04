@@ -1,6 +1,6 @@
 .shopify-block.recharge-subscription-widget {
-  display: flex;
-  justify-content: flex-start;
+  display: flex !important;
+  justify-content: flex-start !important;
 }
 
 .product {

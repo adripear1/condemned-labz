@@ -2210,6 +2210,34 @@ a.product__text {
   display: none !important;
 }
 
+/* Upsell Products Block */
+.upsell-products {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.upsell-products__heading {
+  margin-bottom: 2rem;
+}
+
+.upsell-products__grid {
+  gap: 2rem;
+}
+
+.upsell-products__item {
+  display: flex;
+}
+
+@media screen and (max-width: 749px) {
+  .upsell-products__grid {
+    gap: 1.5rem;
+  }
+  
+  .upsell-products__heading {
+    margin-bottom: 1.5rem;
+  }
+}
+
 
 
 

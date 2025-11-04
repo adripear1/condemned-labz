@@ -2393,9 +2393,14 @@ a.product__text {
   
   .upsell-products__item {
     flex: 0 0 auto;
-    min-width: calc(50vw - 1.5rem);
-    max-width: calc(50vw - 1.5rem);
+    min-width: calc(40vw - 1rem);
+    max-width: calc(40vw - 1rem);
+    width: calc(40vw - 1rem);
     scroll-snap-align: start;
+  }
+  
+  .upsell-products__item .card-wrapper {
+    width: 100%;
   }
   
   .upsell-products__heading {

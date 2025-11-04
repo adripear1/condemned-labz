@@ -1,3 +1,7 @@
+.shopify-block.recharge-subscription-widget {
+  display: flex;
+  justify-content: flex-start;
+}
 
 .product {
   margin: 0;

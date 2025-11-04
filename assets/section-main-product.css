@@ -2393,14 +2393,26 @@ a.product__text {
   
   .upsell-products__item {
     flex: 0 0 auto;
-    min-width: calc(40vw - 1rem);
-    max-width: calc(40vw - 1rem);
-    width: calc(40vw - 1rem);
+    min-width: calc((100vw - 3rem - 1rem) / 2.5);
+    max-width: calc((100vw - 3rem - 1rem) / 2.5);
+    width: calc((100vw - 3rem - 1rem) / 2.5);
     scroll-snap-align: start;
   }
   
   .upsell-products__item .card-wrapper {
     width: 100%;
+    max-width: 100%;
+  }
+  
+  /* Override grid classes on mobile */
+  .upsell-products__grid.grid {
+    display: flex !important;
+  }
+  
+  .upsell-products__grid.grid--1-col,
+  .upsell-products__grid.grid--2-col-tablet,
+  .upsell-products__grid.grid--3-col-desktop {
+    grid-template-columns: none !important;
   }
   
   .upsell-products__heading {

@@ -379,7 +379,6 @@ a.product__text {
 
 .product .price .badge {
   margin-bottom: 0.5rem;
-  border: 1px solid #000000 !important;
 }
 
 .product .price__container {
@@ -1259,7 +1258,6 @@ a.product__text {
   left: auto;
   right: calc(0.4rem + var(--media-border-width));
   top: calc(0.4rem + var(--media-border-width));
-  border: 1px solid #000000 !important;
 }
 
 @media screen and (min-width: 750px) {

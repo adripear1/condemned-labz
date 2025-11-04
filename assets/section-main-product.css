@@ -2399,23 +2399,8 @@ a.product__text {
     scroll-snap-align: start;
   }
   
-  .upsell-products__item .card-wrapper,
-  .upsell-products__item .card,
-  .upsell-products__item .card__inner,
-  .upsell-products__item .card__media {
+  .upsell-products__item .card-wrapper {
     width: 100%;
-    max-width: 100%;
-  }
-  
-  .upsell-products__item .card__media img {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-  
-  .upsell-products__item .card__content {
-    width: 100%;
-    max-width: 100%;
   }
   
   .upsell-products__heading {

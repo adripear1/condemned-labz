@@ -342,6 +342,11 @@ fieldset.product-form__input .form__label {
   margin-bottom: 0;
 }
 
+.product .product__info-wrapper .mm-prod--subtitle.product__text {
+  outline: 1px solid #000000;
+  outline-offset: 2px;
+}
+
 a.product__text {
   display: block;
   text-decoration: none;

@@ -1,9 +1,4 @@
-.product__info-wrapper .shopify-app-block.recharge-subscription-widget,
-.quick-add-modal .product_app-review,
-.quick-add-modal .rts_upsell,
-.quick-add-modal .save_toggle-main{
-  display:none !important;
-}
+
 .product {
   margin: 0;
 }

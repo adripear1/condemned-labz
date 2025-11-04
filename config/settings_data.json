@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "current": {
     "logo": "shopify://shop_images/new_logo.png",
     "logo_width": 180,
@@ -319,14 +319,6 @@
           "font_family": "inherit"
         }
       },
-      "2131494470682214141": {
-        "type": "shopify://apps/corner-cart-drawer-free-gift/blocks/corner-widget/73667a27-0d48-44b7-91f9-aef741c803ed",
-        "disabled": false,
-        "settings": {
-          "elementToReplaceInCartPage": "main",
-          "hide_theme_cart": false
-        }
-      },
       "14327677521557774844": {
         "type": "shopify://apps/simprosys-google-shopping-feed/blocks/core_settings_block/1f0b859e-9fa6-4007-97e8-4513aff5ff3b",
         "disabled": false,
@@ -363,6 +355,16 @@
         "type": "shopify://apps/blockify-fraud-filter/blocks/app_embed/2e3e0ba5-0e70-447a-9ec5-3bf76b5ef12e",
         "disabled": false,
         "settings": {}
+      },
+      "2131494470682214141": {
+        "type": "shopify://apps/corner-cart-drawer-free-gift/blocks/corner-widget/73667a27-0d48-44b7-91f9-aef741c803ed",
+        "disabled": true,
+        "settings": {
+          "elementToReplaceInCartPage": "main",
+          "hide_theme_cart": false,
+          "enable_defer_loading": false,
+          "enable_corner_test_campaigns": true
+        }
       }
     },
     "color_schemes": {

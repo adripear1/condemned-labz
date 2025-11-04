@@ -111,16 +111,9 @@
             "picker_type": "button"
           }
         },
-        "recharge_subscriptions_subscription_widget_v2_kgaf4z": {
+        "recharge_subscriptions_subscription_widget_v2_Qaq3mJ": {
           "type": "shopify://apps/recharge-subscriptions/blocks/subscription-widget-v2/371eed76-0b44-4869-9813-730372ea378e",
           "settings": {}
-        },
-        "recharge_subscriptions_subscription_widget_7fRa8Y": {
-          "type": "shopify://apps/recharge-subscriptions/blocks/subscription-widget/371eed76-0b44-4869-9813-730372ea378e",
-          "disabled": true,
-          "settings": {
-            "product": "{{product}}"
-          }
         },
         "quantity_selector": {
           "type": "quantity_selector",
@@ -200,8 +193,7 @@
         "afterpay_on_site_messaging_payments_messaging_FMYjFY",
         "sezzle_widget_widget_block_C7pUqg",
         "variant_picker",
-        "recharge_subscriptions_subscription_widget_v2_kgaf4z",
-        "recharge_subscriptions_subscription_widget_7fRa8Y",
+        "recharge_subscriptions_subscription_widget_v2_Qaq3mJ",
         "quantity_selector",
         "buy_buttons",
         "description",

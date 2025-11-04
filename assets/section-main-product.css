@@ -2255,11 +2255,39 @@ a.product__text {
   justify-content: center;
   background-color: #FAB20A !important;
   border: none !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  outline: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
   transition: all 0.2s ease;
   font-size: 0 !important; /* Hide text content */
   position: relative;
   color: transparent; /* Hide text color */
+}
+
+/* Remove any button pseudo-elements that might create borders/shadows */
+.upsell-products--quick-add .quick-add__submit::before {
+  display: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Hide the ::after pseudo-element that creates the border (but keep our icon-wrap) */
+.upsell-products--quick-add .quick-add__submit.button::after {
+  display: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  content: none !important;
+}
+
+/* Override button--secondary styles */
+.upsell-products--quick-add .quick-add__submit.button--secondary {
+  border: none !important;
+  outline: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Remove any inherited box-shadow from base button styles */
+.upsell-products--quick-add .quick-add__submit.button {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
 }
 
 .upsell-products--quick-add .quick-add__submit:hover {
@@ -2342,7 +2370,7 @@ a.product__text {
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
-    gap: 1.5rem;
+    gap: 1rem;
     padding-bottom: 1rem;
     margin-left: -1.5rem;
     margin-right: -1.5rem;
@@ -2365,8 +2393,8 @@ a.product__text {
   
   .upsell-products__item {
     flex: 0 0 auto;
-    min-width: calc(50vw - 2rem);
-    max-width: calc(50vw - 2rem);
+    min-width: calc(50vw - 1.5rem);
+    max-width: calc(50vw - 1.5rem);
     scroll-snap-align: start;
   }
   

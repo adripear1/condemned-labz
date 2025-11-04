@@ -582,7 +582,7 @@
                   {%- if block.settings.heading != blank -%}
                     <h2 class="upsell-products__heading h3">{{ block.settings.heading }}</h2>
                   {%- endif -%}
-                  <div class="upsell-products__grid grid grid--1-col grid--2-col-tablet grid--3-col-desktop">
+                  <div class="upsell-products__grid grid grid--1-col grid--2-col-tablet grid--3-col-desktop upsell-products--quick-add">
                     {%- if block.settings.product_1 != blank -%}
                       {%- assign upsell_product = all_products[block.settings.product_1] -%}
                       {%- if upsell_product != blank and upsell_product.available -%}
@@ -594,7 +594,8 @@
                             show_rating: false,
                             lazy_load: true,
                             show_quick_add: block.settings.enable_quick_add,
-                            section_id: section.id
+                            section_id: section.id,
+                            horizontal_quick_add: true
                           %}
                         </div>
                       {%- endif -%}
@@ -610,7 +611,8 @@
                             show_rating: false,
                             lazy_load: true,
                             show_quick_add: block.settings.enable_quick_add,
-                            section_id: section.id
+                            section_id: section.id,
+                            horizontal_quick_add: true
                           %}
                         </div>
                       {%- endif -%}
@@ -626,7 +628,8 @@
                             show_rating: false,
                             lazy_load: true,
                             show_quick_add: block.settings.enable_quick_add,
-                            section_id: section.id
+                            section_id: section.id,
+                            horizontal_quick_add: true
                           %}
                         </div>
                       {%- endif -%}
@@ -642,7 +645,8 @@
                             show_rating: false,
                             lazy_load: true,
                             show_quick_add: block.settings.enable_quick_add,
-                            section_id: section.id
+                            section_id: section.id,
+                            horizontal_quick_add: true
                           %}
                         </div>
                       {%- endif -%}
@@ -658,7 +662,8 @@
                             show_rating: false,
                             lazy_load: true,
                             show_quick_add: block.settings.enable_quick_add,
-                            section_id: section.id
+                            section_id: section.id,
+                            horizontal_quick_add: true
                           %}
                         </div>
                       {%- endif -%}
@@ -674,7 +679,8 @@
                             show_rating: false,
                             lazy_load: true,
                             show_quick_add: block.settings.enable_quick_add,
-                            section_id: section.id
+                            section_id: section.id,
+                            horizontal_quick_add: true
                           %}
                         </div>
                       {%- endif -%}

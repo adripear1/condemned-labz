@@ -2226,6 +2226,89 @@ a.product__text {
   display: flex;
 }
 
+/* Upsell Quick Add Button - Circle with Plus Icon Overlay */
+.upsell-products--quick-add .card-wrapper {
+  position: relative;
+}
+
+.upsell-products--quick-add .card {
+  position: relative;
+}
+
+.upsell-products--quick-add .quick-add {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  margin: 0;
+  z-index: 2;
+  grid-row-start: auto;
+}
+
+.upsell-products--quick-add .quick-add__submit {
+  width: 4rem;
+  height: 4rem;
+  min-width: 4rem !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.upsell-products--quick-add .quick-add__submit:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.upsell-products--quick-add .quick-add__submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Hide price text and sold out message text in button */
+.upsell-products--quick-add .quick-add__submit > span:not(.icon-wrap):not(.loading__spinner) {
+  display: none !important;
+}
+
+/* Show only the plus icon */
+.upsell-products--quick-add .quick-add__submit .icon-wrap {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  position: absolute;
+}
+
+.upsell-products--quick-add .quick-add__submit .icon-plus {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Hide loading spinner initially */
+.upsell-products--quick-add .quick-add__submit .loading__spinner {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Hide quantity selector */
+.upsell-products--quick-add .quick-add quantity-input {
+  display: none !important;
+}
+
+/* Ensure product form doesn't add extra spacing */
+.upsell-products--quick-add .quick-add product-form {
+  display: block;
+}
+
 @media screen and (max-width: 749px) {
   .upsell-products__grid {
     gap: 1.5rem;
@@ -2233,6 +2316,22 @@ a.product__text {
   
   .upsell-products__heading {
     margin-bottom: 1.5rem;
+  }
+  
+  .upsell-products--quick-add .quick-add {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+  
+  .upsell-products--quick-add .quick-add__submit {
+    width: 3.5rem;
+    height: 3.5rem;
+    min-width: 3.5rem;
+  }
+  
+  .upsell-products--quick-add .quick-add__submit .icon-plus {
+    width: 1.75rem;
+    height: 1.75rem;
   }
 }
 
